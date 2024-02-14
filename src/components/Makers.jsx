@@ -188,7 +188,7 @@ const Makers = () => {
         
         <RowProfile>
         <ProfileContainer>
-        <Img src="/public/makers/heesu.svg" alt="Profile" />
+        <Img src="/public/heesu.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>소희수  | 기획/디자인</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -196,7 +196,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="/public/makers/jiyoon.svg" alt="Profile" />
+        <Img src="/public/jiyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>배지윤  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -206,7 +206,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="/public/makers/eunsu.svg" alt="Profile" />
+        <Img src="/public/eunsu.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>양은수  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -214,7 +214,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="/public/makers/yujin.svg" alt="Profile" />
+        <Img src="/public/yujin.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>나유진  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -224,7 +224,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="/public/makers/sumin.svg" alt="Profile" />
+        <Img src="/public/sumin.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>이수민  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -232,7 +232,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="/public/makers/ahyun.svg" alt="Profile" />
+        <Img src="/public/ahyun.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>임아현  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -242,7 +242,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="/public/makers/soyoon.svg" alt="Profile" />
+        <Img src="/public/soyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>박소윤  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -250,7 +250,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer style={{ visibility: "hidden"}}>
-        <Img src="/public/makers/.svg" alt="Profile" />
+        <Img src="/public/soyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>박소윤  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>

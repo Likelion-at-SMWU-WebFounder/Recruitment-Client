@@ -59,7 +59,7 @@ function App() {
               path="/recruitment/submit-success"
               element={<SubmitSuccess />}
             />
-            {/*<Route path="/recruitment/submit-fail" element={<SubmitFail />} />*/}
+            <Route path="/recruitment/submit-fail" element={<SubmitFail />} />
             <Route /* 1차 발표 때 FirstVerification, 최종 발표 때 FinalVerification */
               path="/recruitment/result-verification"
               element={<FinalVerification />}

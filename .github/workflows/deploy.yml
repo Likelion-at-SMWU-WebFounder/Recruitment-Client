@@ -38,11 +38,11 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 cp --region ap-northeast-2 ./build-fe.zip s3://jiyoon-github-actions-tutorial/build-fe.zip
+          aws s3 cp --region ap-northeast-2 ./build-fe.zip s3://lion2-bucket/build-fe.zip
 
       - name: Deploy # Deploy to EC2
         run: aws deploy create-deployment
-          --application-name sook-deploy
+          --application-name lion-application
           --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name sook-deploy-group
-          --s3-location bucket=jiyoon-github-actions-tutorial,key=build-fe.zip,bundleType=zip
+          --deployment-group-name lion-deploy-group
+          --s3-location bucket=lion2-bucket,key=build-fe.zip,bundleType=zip

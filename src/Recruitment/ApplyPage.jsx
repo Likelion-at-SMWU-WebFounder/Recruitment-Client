@@ -20,7 +20,6 @@ export default ApplyPage;
 
 const Layout = styled.div`
   display: flex;
-  background-color: #111111;
 `;
 
 

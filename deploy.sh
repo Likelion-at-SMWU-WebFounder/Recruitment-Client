@@ -1,7 +1,2 @@
-REPOSITORY=/home/ubuntu/deploy
-
-cd $REPOSITORY 
-
-sudo yarn install
-
-sudo pm2 reload all
+#!/usr/bin/env bash
+ echo "> FE 배포"

@@ -118,7 +118,15 @@ const Question = () => {
       answers[2], // 학번
       answers[3], // 전공
       answers[4], // 수료학기
-      answers[6], // 이메일
+      answers[6], // 졸업예정연도
+      answers[22], // 이메일
+
+      answers[8], // 서류 1번문항
+      answers[9], // 서류 2번문항
+      answers[10], // 서류 3번문항
+      answers[11], // 서류 4번문항
+      answers[12], // 서류 5번문항
+      answers[13], // 서류 6번문항
       answers[20], // 위 내용 확인 (필수)
       answers[21], // 개인정보 동의 (필수)
       answers[19], // 개인 비밀번호

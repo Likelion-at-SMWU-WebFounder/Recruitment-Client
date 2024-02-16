@@ -3,14 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import { questions, agree, scheduleData, required } from "./data";
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import axios from 'axios';
-import { questions, agree, scheduleData, required } from './data';
-
-// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 
   const Question = () => {

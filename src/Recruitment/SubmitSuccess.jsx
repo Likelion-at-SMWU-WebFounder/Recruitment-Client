@@ -70,7 +70,7 @@ const SubmitSuccess = () => {
           marginTop="10px"
           style={{ textAlign: "center" }}
         >
-          정상적 서류 접수 여부는 추후 확인 메일 발송해드리겠습니다.
+          정상적 서류 접수 여부는 확인 메일 발송해드리겠습니다.
           <br />
           멋쟁이 사자처럼 숙명여대 12기 모집에 지원해주셔서 감사합니다.{" "}
         </Text>

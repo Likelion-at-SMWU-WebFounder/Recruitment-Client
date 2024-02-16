@@ -289,6 +289,9 @@ const Question = () => {
       setFileName(imageFile.name);
     } catch (error) {
       console.error("이미지 업로드 중 오류 발생:", error);
+
+      // S3 임시방편!! S3 수정시 하단 코드 삭제할것
+      setFileName(imageFile.name);
     }
   };
 

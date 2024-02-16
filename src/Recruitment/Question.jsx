@@ -276,7 +276,6 @@ const Question = () => {
 
   const handleImageUpload = async (e) => {
     const imageFile = e.target.files[0];
-
     try {
       // 이미지를 AWS S3에 업로드하고 URL을 가져옴
       const imageUrl = await uploadImageToS3(imageFile);
@@ -286,6 +285,9 @@ const Question = () => {
       setFileName(imageFile.name);
     } catch (error) {
       console.error("이미지 업로드 중 오류 발생:", error);
+
+      // S3 임시방편!! S3 수정시 하단 코드 삭제할것
+      setFileName(imageFile.name);
     }
   };
 

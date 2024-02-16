@@ -69,6 +69,13 @@ const Question = () => {
   const handleInputChange = (index, value) => {
     const newAnswers = [...answers];
 
+    if (index === 1 && value.length > 11) {
+      alert("전화번호는 ‘-’없이 11자리로 입력해주세요.");
+      value = value.slice(0, 11);
+    } else if (index === 2 && value.length > 7) {
+      alert("학번은 7자리로 입력해주세요.");
+      value = value.slice(0, 7);
+    }
     if (index === 23) {
       newAnswers[index] = fileName;
     } else {

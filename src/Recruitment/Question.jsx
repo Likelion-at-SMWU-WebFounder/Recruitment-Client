@@ -71,6 +71,7 @@ const Question = () => {
 
   const handleInputChange = (index, value) => {
     const newAnswers = [...answers];
+    console.log(checkboxValues);
 
     if (index === 23) {
       newAnswers[index] = fileName;
@@ -130,9 +131,13 @@ const Question = () => {
 
     // 필수 입력 필드 중 빈 값이 있는지 확인
     const hasEmptyFields = requiredFields.some((field) => !field);
+    const hasInterviewDate = checkboxValues.every((field) => !field);
 
     if (hasEmptyFields) {
       alert("입력되지 않은 항목이 있습니다. 확인 후 다시 제출해주세요.");
+      return;
+    } else if (hasInterviewDate) {
+      alert("면접 가능 일자가 선택되지 않았습니다. 확인 후 다시 제출해주세요.");
       return;
     } else {
       // 모든 필수 입력 폼이 작성된 경우, 서버로 데이터 전송 후 페이지 이동
@@ -498,6 +503,7 @@ const Question = () => {
             {scheduleData.map((schedule, index) => (
               <CheckboxLabel key={index}>
                 <Checkbox
+                  // required
                   type="checkbox"
                   checked={checkboxValues[index]}
                   onChange={(e) =>

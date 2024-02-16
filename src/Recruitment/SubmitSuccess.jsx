@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Text = styled.div`
   color: white;
@@ -22,7 +22,7 @@ const Layout = styled.div`
 `;
 
 const Img = styled.img`
-    width: 300px;
+  width: 300px;
 `;
 
 const Container = styled.div`
@@ -31,9 +31,7 @@ const Container = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  
 `;
-
 
 const ResultBox = styled.div`
   width: 220px;
@@ -47,24 +45,39 @@ const ResultBox = styled.div`
   font-weight: 700;
   color: #111111;
   margin-top: 40px;
-  background: linear-gradient(180deg, #EB9537 5.52%, #ECC08F 96.15%);
+  background: linear-gradient(180deg, #eb9537 5.52%, #ecc08f 96.15%);
   cursor: pointer;
 `;
 
-
 const SubmitSuccess = () => {
-  
   return (
     <Layout>
-    <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
-    <Container>
-      <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/StarLion.svg" alt="lion" />
-      <Text fontSize="26px" fontWeight="800">서류 접수가 완료되었습니다.</Text>
-      <Text fontSize="22px" fontWeight="lighter" marginTop="10px">지원해 주셔서 감사합니다.</Text>
-      <Link to="/home" style={{ textDecoration: 'none' }}>
-    <ResultBox>홈으로</ResultBox>
-    </Link>
-    </Container>
+      <Img
+        src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg"
+        alt="logo"
+      />
+      <Container>
+        <Img
+          src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/StarLion.svg"
+          alt="lion"
+        />
+        <Text fontSize="26px" fontWeight="800">
+          서류 접수가 완료되었습니다.
+        </Text>
+        <Text
+          fontSize="22px"
+          fontWeight="lighter"
+          marginTop="10px"
+          style={{ textAlign: "center" }}
+        >
+          정상적 서류 접수 여부는 추후 확인 메일 발송해드리겠습니다.
+          <br />
+          멋쟁이 사자처럼 숙명여대 12기 모집에 지원해주셔서 감사합니다.{" "}
+        </Text>
+        <Link to="/home" style={{ textDecoration: "none" }}>
+          <ResultBox>홈으로</ResultBox>
+        </Link>
+      </Container>
     </Layout>
   );
 };

@@ -11,6 +11,12 @@ const Question = () => {
   let partName = "";
   let backgroundImage = "";
 
+  // 이메일 유효검사
+  function emailCheck(email_address) {
+    const email_regex = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+    return !email_regex.test(email_address);
+  }
+
   const getTrackField = (part) => {
     switch (part) {
       case "plan":
@@ -142,6 +148,9 @@ const Question = () => {
     } else if (hasInterviewDate) {
       alert("면접 가능 일자가 선택되지 않았습니다. 확인 후 다시 제출해주세요.");
       return;
+    } else if (emailCheck(answers[22])) {
+      alert("유효한 이메일 형식으로 입력해주세요.");
+      return;
     } else {
       // 모든 필수 입력 폼이 작성된 경우, 서버로 데이터 전송 후 페이지 이동
       try {
@@ -185,26 +194,17 @@ const Question = () => {
         };
 
         response = await axios.post(apiUrl, requestBody);
-
-        if (response.data.isSuccess) {
-          // 중복된 학번이 제출되었을 때의 처리
+        const confirmation = window.confirm(
+          "제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?"
+        );
+        if (confirmation) {
           if (response.data.code === 404) {
             window.alert(response.data.message);
+            return;
           } else {
-            const confirmation = window.confirm(response.data.message);
-            if (confirmation) {
-              // 확인을 누르면 머무르도록 함
-              return; // 이 부분이 추가된 부분입니다.
-            }
-          }
-        } else {
-          setSubmitted(true);
-          const confirmation = window.confirm(
-            "제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?"
-          );
-          if (confirmation) {
             navigate("/recruitment/submit-success");
           }
+          setSubmitted(true);
         }
       } catch (error) {
         console.error("서버 전송 중 오류 발생:", error);

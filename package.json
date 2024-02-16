@@ -1,5 +1,6 @@
 {
   "name": "recruitment-client",
+  "proxy": "http://52.79.255.210:8080",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

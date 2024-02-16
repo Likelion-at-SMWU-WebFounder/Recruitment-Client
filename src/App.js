@@ -27,6 +27,7 @@ import NotFound from './pages/NotFound';
 import Contact from './pages/Contact';
 import ApplyPage from './Recruitment/ApplyPage';
 import Project from './pages/Project';
+import ProjectForm from './Recruitment/ProjectForm';
 
 const Div = styled.div`
   margin-top: 120px;
@@ -65,6 +66,7 @@ function App() {
             />
             <Route path="/contact" element={LayOut(Contact)} />
             <Route path="/makers" element={LayOut(Makers)} />
+            {/*<Route path="/form" element={<ProjectForm projectId={1}/>} />*/}
           </Routes>
         </div>
       </Router>

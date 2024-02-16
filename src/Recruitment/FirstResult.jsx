@@ -115,7 +115,7 @@ const FirstResult = ({ name, message }) => {
     return (
         <Layout>
             <Container>
-                <Img src="/public/SMLogo.svg" alt="logo" />
+                <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
                 <PassContainer message={message}>
                     <BoxContainer>
                         <Hr />

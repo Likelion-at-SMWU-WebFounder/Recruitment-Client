@@ -67,7 +67,7 @@ const Container = styled.div`
   background-color: #111111;
   color: white;
   width: 100%;
-  background-image: url('/public/Banner.svg');
+  background-image: url('Banner.svg');
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;

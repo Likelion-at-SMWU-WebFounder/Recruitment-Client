@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-export const HOME_URL = process.env.REACT_APP_HOME_URL;
+// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
+// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 const Modal = ({ projectId, onClose }) => {
   const [project, setProject] = useState(null);
@@ -12,7 +12,7 @@ const Modal = ({ projectId, onClose }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/api/project/${projectId}`);
+        const response = await fetch(`http://52.79.255.210:8080/api/project/${projectId}`);
         const data = await response.json();
         setProject(data.result);
         console.log(data.result);
@@ -53,7 +53,7 @@ const Modal = ({ projectId, onClose }) => {
         <CloseButton onClick={onClose}>X</CloseButton>
         {bgImg
         ? <ModalImage src={bgImg} alt={title} />
-        : <ModalImage src="/public/NullImage.svg"alt={title}/>
+        : <ModalImage src="NullImage.svg"alt={title}/>
         }
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>

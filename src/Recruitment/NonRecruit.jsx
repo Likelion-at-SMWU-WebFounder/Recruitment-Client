@@ -3,9 +3,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Information from '../components/Information';
 
-export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-export const HOME_URL = process.env.REACT_APP_HOME_URL;
-
 
 const Text = styled.div`
   color: white;

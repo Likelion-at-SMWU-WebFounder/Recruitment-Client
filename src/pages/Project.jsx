@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Modal from '../components/Modal';
 
-export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-export const HOME_URL = process.env.REACT_APP_HOME_URL;
-
+// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
+// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 const ProjectCard = ({ project, onClick }) => {
   const { bgImg, title, no, year, summary } = project;
@@ -33,7 +32,7 @@ const Project = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch(`${API_BASE_URL}/api/project`);
+          const response = await fetch(`http://52.79.255.210:8080/api/project`);
           const data = await response.json();
           setProjects(data.result);
           console.log(data.result);
@@ -134,7 +133,7 @@ const Card = styled.div`
   flex: 0 0 calc(45% - 3.5vw);
   width: 45%;
   background-color: #F8DBBB;
-  border-radius: 2.5vw;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 0.5vw 1.25vw rgba(0, 0, 0, 0.25);
   margin-top: 5.5vw;
@@ -151,12 +150,16 @@ const CardImage = styled.img`
 `;
 */
 
-const CardImage = styled.div`
+const CardImage = styled.img`
   width: 100%;
   height: 20vw;
   object-fit: cover;
-  border-radius: 2.5vw;
+  border-radius: 20px;
   background-color: #EB9537;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  
 `;
 
 const CardContent = styled.div`

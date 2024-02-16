@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { questions, agree, scheduleData, required } from './data';
 
-export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-export const HOME_URL = process.env.REACT_APP_HOME_URL;
+// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
+// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 
   const Question = () => {
     const { part } = useParams();
+    const navigate = useNavigate();
+
     let partName = '';
     let backgroundImage = '';
   
@@ -42,15 +44,15 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
     switch (part) {
       case 'plan':
         partName = '기획 · 디자인';
-        backgroundImage = '/public/planline.svg';
+        backgroundImage = 'planline.svg';
         break;
       case 'frontend':
         partName = '프론트엔드';
-        backgroundImage = '/public/frontline.svg';
+        backgroundImage = 'frontline.svg';
         break;
       case 'backend':
         partName = '백엔드';
-        backgroundImage = '/public/backline.svg';
+        backgroundImage = 'backline.svg';
         break;
       default:
         partName = 'error';
@@ -100,6 +102,9 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
     const handleSubmit = async (e) => {
       e.preventDefault();
       let response;
+
+      const shortTrack = getShortTrack(part);
+      const apiUrl = `http://52.79.255.210:8080/api/recruit/docs?track=${shortTrack}`;
     // 필수 입력 필드 확인
     const requiredFields = [
       answers[0], // 성함
@@ -124,11 +129,51 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
       // 모든 필수 입력 폼이 작성된 경우, 서버로 데이터 전송 후 페이지 이동
       try {
 
+        const trackfield = getTrackField(part);
+        // console.log('Track:', trackfield);
+
+        const selectedInterviewTimes = scheduleData.filter((time, index) => checkboxValues[index]);
+    
+        const interviewTimes = {};
+        selectedInterviewTimes.forEach((time, index) => {
+          interviewTimes[index + 1] = time;
+        });
+
+        const requestBody = {
+          studentInfo: {
+            agreeToEventParticipation: answers[20],
+            agreeToTerms: answers[21],
+            completedSem: answers[4],
+            email: answers[22],
+            graduatedYear: answers[6],
+            major: answers[3],
+            name: answers[0],
+            password: answers[19],
+            phoneNumber: answers[1],
+            portfolio: answers[14],
+            programmers: answers[7] === 'O' ? 'ENROLLED' : 'NOT_ENROLLED',
+            programmersImg: answers[23],
+            schoolStatus: answers[5] === '재학' ? 'ENROLLED' : 'ON_LEAVE',
+            studentId: answers[2],
+            track: trackfield, 
+          },
+          answerList: {
+            a1: answers[8],
+            a2: answers[9],
+            a3: answers[10],
+            a4: answers[11],
+            a5: answers[12],
+            a6: answers[13],
+            a7: answers[14],
+          },
+          interview_time: interviewTimes,
+        };
+
         response = await axios.post(apiUrl, requestBody);
         setSubmitted(true);
         alert('제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?');
-        window.location.href = '/recruitment/submit-success';
-        console.log('API Response:', response);
+        navigate('/recruitment/submit-success');
+        // console.log('API Response:', response);
       } catch (error) {
         console.error('서버 전송 중 오류 발생:', error);
       }
@@ -136,8 +181,7 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
       try {
         const trackfield = getTrackField(part);
-        const shortTrack = getShortTrack(part);
-        console.log('Track:', trackfield);
+        // console.log('Track:', trackfield);
     
         const selectedInterviewTimes = scheduleData.filter((time, index) => checkboxValues[index]);
     
@@ -177,10 +221,7 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
             interview_time: interviewTimes,
           };
 
-          const apiUrl = `${API_BASE_URL}/api/recruit/docs?track=${shortTrack}`;
-          console.log('API URL:', apiUrl);
-          
-          const response = await axios.post(apiUrl, requestBody);
+          // console.log('API URL:', apiUrl);
     
           if (response.status === 200) {
             const trackfield = getTrackField(part);
@@ -192,10 +233,43 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
         }
       };
 
+      const uploadImageToS3 = async (imageFile) => {
+        try {
+          const formData = new FormData();
+          formData.append('file', imageFile);
+      
+          // AWS S3 업로드 API 엔드포인트와 업로드 설정에 따라 수정 필요
+          const response = await axios.post('http://52.79.255.210:8080/api/recruit/docs?track=${shortTrack}', formData);
+      
+          // 업로드된 이미지의 URL 반환
+          return response.data.imageUrl;
+        } catch (error) {
+          console.error('이미지를 AWS S3에 업로드하는 중 오류 발생:', error);
+          throw error;
+        }
+      };
+
+      const handleImageUpload = async (e) => {
+        const imageFile = e.target.files[0];
+      
+        try {
+          // 이미지를 AWS S3에 업로드하고 URL을 가져옴
+          const imageUrl = await uploadImageToS3(imageFile);
+      
+          // programmersImg 상태 업데이트
+          handleInputChange(23, imageUrl);
+          setFileName(imageFile.name);
+        } catch (error) {
+          console.error('이미지 업로드 중 오류 발생:', error);
+        }
+      };
+      
+    
+
       return (
         <>
         <form onSubmit={handleSubmit}>
-          <Img src="/public/SMLogo.svg" alt="logo" />
+          <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
           <Row>
             <PartText background={backgroundImage}>{partName} 트랙</PartText>
             <TitleText>&nbsp;서류 작성 페이지 입니다.</TitleText>
@@ -327,17 +401,14 @@ export const HOME_URL = process.env.REACT_APP_HOME_URL;
               <FormContainer>
               <FileUploadContainer>
               {/*programmersImg*/}
-                <FileInputLabel> 
-                  {fileName ? fileName : '파일 업로드  +'}
-                  <FileInput
-                    type="file"
-                    onChange={(e) => {
-                      setFileName(e.target.files[0].name);
-                      handleInputChange(23, e.target.files[0].name);
-                    }}
-                  />
+              <FileInputLabel> 
+              {fileName ? fileName : '파일 업로드  +'}
+              <FileInput
+                type="file"
+                onChange={handleImageUpload} // 파일 업로드 핸들러로 변경
+              />
+            </FileInputLabel>
 
-                </FileInputLabel>
               </FileUploadContainer>
             </FormContainer>
             </Row>

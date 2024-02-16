@@ -70,7 +70,7 @@ const Container = styled.div`
 
 const PassContainer = styled.div`
   display: ${(props) => (props.message === 'pass' ? 'block' : 'none')};
-  background-image: url('/public/Confetti.svg');
+  background-image: url('Confetti.svg');
   background-size: 60% auto;
   background-position: left top;
   background-repeat: no-repeat;
@@ -154,7 +154,7 @@ const FinalResult = ({ name, message }) => {
   return (
     <Layout>
     <Container>
-      <Img src="/public/SMLogo.svg" alt="logo" />
+      <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
       <PassContainer message={message}>
       <BoxContainer>
         <Hr />
@@ -174,7 +174,7 @@ const FinalResult = ({ name, message }) => {
         </BoxContainer>
         <BoxContainer>
         <Text>숙명여대 멋쟁이사자처럼 운영진 드림</Text>
-        <Lion src="/public/WinkingLion.svg" alt="lion" />
+        <Lion src="WinkingLion.svg" alt="lion" />
         <Hr />
       </BoxContainer>
       </PassContainer>

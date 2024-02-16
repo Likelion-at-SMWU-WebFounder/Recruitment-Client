@@ -56,9 +56,9 @@ const SubmitSuccess = () => {
   
   return (
     <Layout>
-     <Img src="/public/SMLogo.svg" alt="logo" />
+    <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
     <Container>
-      <Img src="/public/StarLion.svg" alt="lion" />
+      <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/StarLion.svg" alt="lion" />
       <Text fontSize="26px" fontWeight="800">서류 접수가 완료되었습니다.</Text>
       <Text fontSize="22px" fontWeight="lighter" marginTop="10px">지원해 주셔서 감사합니다.</Text>
       <Link to="/home" style={{ textDecoration: 'none' }}>

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 import FirstResult from './FirstResult';
 
-export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-export const HOME_URL = process.env.REACT_APP_HOME_URL;
+// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
+// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 const Text = styled.div`
   color: white;
@@ -115,7 +115,7 @@ const FirstVerification = () => {
 
   const handleResultCheck = async () => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/recruit/result/docs`, {
+      const response = await axios.post(`http://52.79.255.210:8080/api/recruit/result/docs`, {
         name,
         studentId,
         password
@@ -142,7 +142,7 @@ const FirstVerification = () => {
       <Container>
       {finalResult ? null : (
         <>
-            <Img src="/public/SMLogo.svg" alt="logo" />
+            <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
             <Text marginBottom="60px" MobileFontSize="24px">1차 심사 결과 확인</Text>
             <BoxContainer>
             <Text>성함</Text>

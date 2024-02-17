@@ -42,7 +42,7 @@ const Container = styled.div`
     background-color: #111111;
     color: white;
     width: 100%;
-    background-image: url('/public/Banner.svg');
+    background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
     background-size: 100%;
     background-position: center top;
     background-repeat: no-repeat;
@@ -161,7 +161,7 @@ const NonRecruit = () => {
   return (
     <Layout>
       <Container>
-        <Img src="SadLion.svg" alt="lion" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/SadLion.svg" alt="lion" />
         <Text>지금은 모집기간이 아닙니다.</Text>
         <Text>숙명여대 멋쟁이사자처럼 모집이 시작되면 메일을 보내드립니다.</Text>
 

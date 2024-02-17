@@ -45,7 +45,7 @@ const Container = styled.div`
   background-color: #111111;
   color: white;
   width: 100%;
-  background-image: url('/public/Banner.svg');
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -99,7 +99,7 @@ const ColorText = styled.span`
     line-height: 30px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     font-size: 13px;
     line-height: 30px;
   }
@@ -109,7 +109,7 @@ const FinalRecruit = () => {
   return (
     <Layout>
       <Container>
-        <Img src="lion.svg" alt="lion" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg" alt="lion" />
         <Text marginTop="30px">
           숙명여대 멋쟁이사자처럼{' '}
           <ColorText color="#eb9537">

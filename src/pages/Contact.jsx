@@ -129,17 +129,17 @@ const Contact = () => {
 
     <SNSContainer>
         <SNSBox href='https://www.instagram.com/sookmyung_likelion/' target="_blank">
-        <Icon src="Insta.svg" alt="Instagram"></Icon>
+        <Icon src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Insta.svg" alt="Instagram"></Icon>
         <Text TabletfontSize="22px" MoblieLineHeight="10px" MobliefontSize="10px" fontSize="35px" marginBottom="10px" fontWeight="600">INSTAGRAM</Text>
         <Text TabletfontSize="15px" MoblieLineHeight="10px" MobliefontSize="9px" fontSize="27px" marginBottom="10px" fontWeight="200">@sookmyung_likelion</Text>
         </SNSBox>
         <SNSBox href='https://open.kakao.com/me/likelion_sookmyung' target="_blank">
-        <Icon src="Kakao.svg" alt="KakaoTalk"></Icon>
+        <Icon src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Kakao.svg" alt="KakaoTalk"></Icon>
         <Text TabletfontSize="18px" MoblieLineHeight="9px" MobliefontSize="10px" fontSize="35px" marginBottom="10px" fontWeight="600">카카오톡 오픈채팅</Text>
         <Text TabletfontSize="15px" MoblieLineHeight="9px" MobliefontSize="9px" fontSize="27px" marginBottom="10px" fontWeight="200">참여코드: likelion</Text>
         </SNSBox>
         <SNSBox href='https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=sookmyung@likelion.org' target="_blank">
-        <Icon src="Gmail.svg" alt="Email"></Icon>
+        <Icon src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Gmail.svg" alt="Email"></Icon>
         <Text TabletfontSize="22px" MoblieLineHeight="10px" MobliefontSize="10px" fontSize="35px" marginBottom="10px" fontWeight="600">E-mail</Text>
         <Text TabletfontSize="15px" MoblieLineHeight="10px" MobliefontSize="9px" fontSize="27px" marginBottom="10px" fontWeight="200">sookmyung@likelion.org</Text>
         </SNSBox>

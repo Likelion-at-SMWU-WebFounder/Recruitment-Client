@@ -7,7 +7,12 @@ const NotFound = () => {
     display: flex;
     justify-content: center;
     position: relative;
-    margin-top: 15rem;
+    margin-top: 9rem;
+    
+    @media (max-width: 480px) {
+      margin-top: 2rem;
+    }
+
   `;
   const Img = styled.img`
     width: 371px;
@@ -66,12 +71,12 @@ const NotFound = () => {
     <S.Layout>
       <S.Container>
         <ImgContainer>
-          <Img src="lionwow.svg" alt="lionwow" />
-          <Imgg src="question.svg" alt="question" />
+          <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lionwow.svg" alt="lionwow" />
+          <Imgg src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/question.svg" alt="question" />
         </ImgContainer>
         <Text>요청하신 페이지를 찾을 수 없습니다. </Text>
         <SubText>
-          페이지 주소가 잘못입력되었거나, 삭제된 페이지일 수 있습니다.
+          페이지 주소가 잘못 입력되었거나, 삭제된 페이지일 수 있습니다.
         </SubText>
       </S.Container>
     </S.Layout>

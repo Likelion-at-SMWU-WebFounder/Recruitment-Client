@@ -64,10 +64,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111111;
   color: white;
   width: 100%;
-  background-image: url('Banner.svg');
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -171,7 +170,7 @@ const Recruit = () => {
   return (
     <Layout>
     <Container>
-      <Img src="RecruitLion.svg" alt="lion" />
+      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/RecruitLion.svg" alt="lion" />
 
       <Text> 숙명여대 멋쟁이사자처럼 리크루팅 페이지에 오신 것을 환영합니다.</Text>
       <Text>희망 지원파트에 접속하시어 서류접수를 진행해주세요. </Text>

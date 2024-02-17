@@ -53,7 +53,7 @@ const Modal = ({ projectId, onClose }) => {
         <CloseButton onClick={onClose}>X</CloseButton>
         {bgImg
         ? <ModalImage src={bgImg} alt={title} />
-        : <ModalImage src="NullImage.svg"alt={title}/>
+        : <ModalImage src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/NullImage.svg"alt={title}/>
         }
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>

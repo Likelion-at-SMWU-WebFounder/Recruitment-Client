@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../components/Modal";
 
-// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 const ProjectCard = ({ project, onClick }) => {
   const { bgImg, title, no, year, summary } = project;
@@ -72,29 +70,29 @@ const Project = () => {
         <BannerContainer>
           <Text
             fontSize="4vw"
-            MobilefontSize="22px"
+            MobilefontSize="18px"
             fontWeight="bolder"
             marginLeft="10vw"
-            marginTop="10vw"
+            marginTop="10.5vw"
           >
             내 아이디어를
           </Text>
           <Text
             fontSize="4vw"
-            MobilefontSize="22px"
+            MobilefontSize="18px"
             fontWeight="bolder"
             marginLeft="10vw"
-            marginTop="2vw"
+            marginTop="2.5vw"
           >
             내 손으로 실현한다
           </Text>
           <Text
             fontSize="2.2vw"
-            MobilefontSize="11px"
+            MobilefontSize="10px"
             fontWeight="lighter"
             marginLeft="10vw"
             marginBottom="10vw"
-            marginTop="4.3vw"
+            marginTop="5.5vw"
           >
             숙명여대 멋쟁이사자처럼 팀원들의 프로젝트를 둘러보세요.
           </Text>
@@ -122,21 +120,15 @@ const Layout = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-top: 5vw;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-color: #111111;
   color: white;
   width: 100%;
   margin-top: -70px;
-
-  @media (max-width: 480px) {
-    margin-top: -150px;
-  }
 `;
 
 const Text = styled.div`
@@ -159,10 +151,14 @@ const Text = styled.div`
 const BannerContainer = styled.div`
   align-items: left;
   width: 100%;
-  background-image: url("ProjectBanner.svg");
+  background-image: url("https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/ProjectBanner.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;
+
+  @media (max-width: 480px) {
+    margin-top: -50px;
+  }
 `;
 
 const Card = styled.div`

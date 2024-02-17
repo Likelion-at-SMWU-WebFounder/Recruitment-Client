@@ -155,7 +155,7 @@ const FinalResult = ({ name, message, track }) => {
   return (
     <Layout>
     <Container>
-      <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
+      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg" alt="logo" />
       <PassContainer message={message}>
       <BoxContainer>
         <Hr />

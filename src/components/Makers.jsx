@@ -186,7 +186,7 @@ const Makers = () => {
         
         <RowProfile>
         <ProfileContainer>
-        <Img src="heesu.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/heesu.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>소희수  | 기획/디자인</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -194,7 +194,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="jiyoon.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/jiyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>배지윤  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -204,7 +204,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="eunsu.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/eunsu.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>양은수  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -212,7 +212,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="yujin.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/yujin.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>나유진  | 프론트엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -222,7 +222,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="sumin.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sumin.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>이수민  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -230,7 +230,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer>
-        <Img src="ahyun.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/ahyun.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>임아현  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -240,7 +240,7 @@ const Makers = () => {
         </RowProfile>
         <RowProfile>
         <ProfileContainer>
-        <Img src="soyoon.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/soyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>박소윤  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>
@@ -248,7 +248,7 @@ const Makers = () => {
           </BoxContainer>
         </ProfileContainer>
         <ProfileContainer style={{ visibility: "hidden"}}>
-        <Img src="soyoon.svg" alt="Profile" />
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/soyoon.svg" alt="Profile" />
           <BoxContainer>
               <ProfileText style={{fontWeight:'800', fontSize: '20px'}}>박소윤  | 백엔드</ProfileText>
               <ProfileText style={{marginRight:'40px'}}>멋쟁이사자처럼 숙명여대 10기</ProfileText>

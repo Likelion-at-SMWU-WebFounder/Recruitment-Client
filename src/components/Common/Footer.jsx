@@ -9,7 +9,7 @@ const Footer = () => {
   };
   return (
     <FooterContainer>
-      <LogoImg src="footerLogo.svg" alt="footerLogo" />
+      <LogoImg src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/footerLogo.svg" alt="footerLogo" />
       <LikelionSMWU>멋쟁이사자처럼 숙명여대</LikelionSMWU>
       <CopyRight>
         Copyrightⓒ2023 멋쟁이사자처럼 숙명여대 All rights reserved.

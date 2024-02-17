@@ -399,7 +399,7 @@ const AboutUs = () => {
               <br /> 숙명여대 눈송이 여러분을 환영합니다!
             </Slogan>
             <S.ColumnBox>
-              <Img src="WinkingLion.svg" alt="lion" />
+              <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/WinkingLion.svg" alt="lion" />
             </S.ColumnBox>
           </S.RowBox>
           <GradDiv background="linear-gradient(180deg,rgba(230, 120, 0, 0.2) 0%, rgba(217, 217, 217, 0) 100%)">
@@ -411,12 +411,12 @@ const AboutUs = () => {
             </SmallTextDiv>
           </GradDiv>
           <RowBox>
-            <ImgSmwu src="smwu1.svg" alt="정기 세미나" />
-            <ImgSmwu src="smwu2.svg" alt="해커톤" />
+            <ImgSmwu src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/smwu1.svg" alt="정기 세미나" />
+            <ImgSmwu src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/smwu2.svg" alt="해커톤" />
           </RowBox>
           <RowBox>
-            <ImgSmwu src="smwu3.svg" alt="선배와의 대화" />
-            <ImgSmwu src="smwu4.svg" alt="그 외 친목 활동" />
+            <ImgSmwu src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/smwu3.svg" alt="선배와의 대화" />
+            <ImgSmwu src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/smwu4.svg" alt="그 외 친목 활동" />
           </RowBox>
           <GradDiv background="linear-gradient(180deg, rgba(14, 50, 132, 0.50) 0%, rgba(174, 190, 249, 0.00) 51.35%, rgba(14, 50, 132, 0.50) 100%)">
             <BigTextDiv>
@@ -570,12 +570,12 @@ const AboutUs = () => {
           </GradDiv>
           <ApplyDiv>
             <SloganB>
-              <ImgSquareT src="top.svg" alt="top" top="-60px" left="-55px" />
+              <ImgSquareT src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/top.svg" alt="top" top="-60px" left="-55px" />
               Be the LION,
               <br />
               Rule Your World!
               <ImgSquareB
-                src="bottom.svg"
+                src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/bottom.svg"
                 alt="bottom"
                 top="250px"
                 left="640px"
@@ -587,7 +587,7 @@ const AboutUs = () => {
                 <BoldText>&nbsp;&nbsp;12기 </BoldText>
                 지원하기
               </LinkToAboutUs>
-              <ImgArrow src="arrow.svg" alt="arrow" top="20px" right="50px" />
+              <ImgArrow src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/arrow.svg" alt="arrow" top="20px" right="50px" />
             </LinkToAboutUsContainer>
           </ApplyDiv>
         </S.Container>

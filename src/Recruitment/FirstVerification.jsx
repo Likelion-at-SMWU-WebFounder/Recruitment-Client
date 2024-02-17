@@ -142,7 +142,7 @@ const FirstVerification = () => {
       <Container>
       {finalResult ? null : (
         <>
-            <Img src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg" alt="logo" />
+            <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg" alt="logo" />
             <Text marginBottom="60px" MobileFontSize="24px">1차 심사 결과 확인</Text>
             <BoxContainer>
             <Text>성함</Text>

@@ -48,7 +48,7 @@ const Container = styled.div`
   background-color: #111111;
   color: white;
   width: 100%;
-  background-image: url('/public/Banner.svg');
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -115,7 +115,7 @@ const FirstRecruit = () => {
   return (
     <Layout>
     <Container>
-      <Img src="RecruitLion.svg" alt="lion" />
+      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/RecruitLion.svg" alt="lion" />
       
       <Text>숙명여대 멋쟁이사자처럼 <ColorText fontSize="43px" color="#EB9537">1차 서류 심사</ColorText>가 완료되었습니다.</Text>
       <Text>지원자 1차 심사 결과확인은 하단 링크를 통해 확인이 가능합니다.</Text>

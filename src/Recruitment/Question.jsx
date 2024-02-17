@@ -10,6 +10,7 @@ const Question = () => {
   const navigate = useNavigate();
 
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleFileSelect = (e) => {
     const files = Array.from(e.target.files);
@@ -54,15 +55,15 @@ const Question = () => {
   switch (part) {
     case "plan":
       partName = "기획 · 디자인";
-      backgroundImage = "planline.svg";
+      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/planline.svg";
       break;
     case "frontend":
       partName = "프론트엔드";
-      backgroundImage = "frontline.svg";
+      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/frontline.svg";
       break;
     case "backend":
       partName = "백엔드";
-      backgroundImage = "backline.svg";
+      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/backline.svg";
       break;
     default:
       partName = "error";
@@ -335,7 +336,7 @@ const Question = () => {
     <>
       <form onSubmit={handleSubmit}>
         <Img
-          src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg"
+          src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg"
           alt="logo"
         />
         <Row>
@@ -397,7 +398,7 @@ const Question = () => {
           </FormContainer>
         </Row>
         <Row style={{ marginLeft: "570px" }}>
-          <Text fontSize="13px" marginLeft="-50px" marginBottom="12px">
+          <Text fontSize="13px" marginLeft="-50px" marginTop="-27px" marginBottom="0px">
             *본전공/복수전공/연계전공 등 자유롭게 입력 가능
           </Text>
         </Row>
@@ -440,7 +441,7 @@ const Question = () => {
           </FormContainer>
           <FormContainer>
             <Text fontSize="20px" marginLeft="178px">
-              이메일
+              이메일 *
             </Text>
             <Input
               autocomplete="off"
@@ -532,7 +533,7 @@ const Question = () => {
         <QuestionContainer>
           <Text fontSize="18px" marginTop="30px" marginLeft="30px">
             7. 기술블로그, 포트폴리오, GitHub 등 자유롭게 URL 형식으로
-            제출해주세요. *선택
+            제출해 주세요. *선택
           </Text>
           <Textarea
             style={{ height: "100px" }}
@@ -544,7 +545,7 @@ const Question = () => {
         <Hr marginTop="60px" marginBottom="30px" />
         <QuestionContainer>
           <Text fontSize="18px" marginTop="30px" marginLeft="30px">
-            면접 가능 일자에 모두 체크해 주세요
+            면접 가능 일자에 모두 체크해 주세요. *
           </Text>
           <CheckboxContainer>
             {scheduleData.map((schedule, index) => (
@@ -592,7 +593,7 @@ const Question = () => {
                 checked={answers[20]}
                 onChange={(e) => handleInputChange(20, e.target.checked)}
               />
-              위 내용을 확인하였습니다.(필수)
+              위 내용을 확인하였습니다. (필수)
             </AgreeLabel>
           </AgreeContainer>
         </QuestionContainer>
@@ -620,21 +621,26 @@ const Question = () => {
         <Row>
           <Text fontSize="18px" marginTop="30px" marginLeft="30px">
             서류전형, 면접전형 결과 조회 시 사용할 개인 비밀번호 4자리를
-            설정해주세요!
+            설정해 주세요. *
             <br />
             <span style={{ color: "red", fontWeight: "200", marginTop: "7px" }}>
               *비밀번호 분실 시, 추후 결과 조회가 어려울 수 있으니 유의바랍니다.
             </span>
           </Text>
           {/* password: answers[19] */}
-          <Input
-            autocomplete="off"
-            type="password"
-            value={answers[19]}
-            onChange={(e) => handleInputChange(19, e.target.value)}
-            placeholder="4자리 숫자 입력"
-            maxLength="4"
-          />
+          <InputContainer>
+            <PasswordInput
+              autocomplete="off"
+              type={showPassword ? "text" : "password"}
+              value={answers[19]}
+              onChange={(e) => handleInputChange(19, e.target.value)}
+              placeholder="4자리 숫자 입력"
+              maxLength="4"
+            />
+            <EyeIcon onClick={() => setShowPassword(!showPassword)}>
+              {showPassword ? "🔒" : "👁️"}
+            </EyeIcon>
+          </InputContainer>
         </Row>
         <Text fontSize="18px" marginTop="30px" marginLeft="30px">
           <span style={{ color: "red", fontWeight: "200", marginTop: "7px" }}>
@@ -767,13 +773,52 @@ const Input = styled.input`
   padding: 5px;
   padding-left: 12px;
   height: 36px;
-  margin-top: 28px;
+  margin-top: 20px;
   margin-right: ${(props) => props.marginRight};
   margin-left: 30px;
   ::placeholder {
     color: #9e9e9e;
   }
 `;
+
+const InputContainer = styled.div`
+  position: relative;
+`;
+
+const PasswordInput = styled.input`
+  padding-right: 30px;
+  width: 60%;
+  box-sizing: border-box;
+  font-size: 18px;
+  background: #111111;
+  border-radius: 13px;
+  color: white;
+  border: 1px solid #ffffff;
+  padding: 5px;
+  padding-left: 12px;
+  height: 36px;
+  margin-top: 28px;
+  margin-left: 20px;
+`;
+
+const EyeIcon = styled.span`
+  position: absolute;
+  top: 50%;
+  right: 110px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 17px;
+
+  @media (max-width: 480px) {
+    position: absolute;
+    top: 30%;
+    right: 110px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 17px;
+  }
+`;
+
 
 const PartText = styled.div`
   font-size: 36px;
@@ -857,6 +902,7 @@ const ProLink = styled.a`
   font-size: 14px;
   color: white;
 `;
+
 const AgreeContainer = styled.div`
   display: flex;
   flex-wrap: wrap;

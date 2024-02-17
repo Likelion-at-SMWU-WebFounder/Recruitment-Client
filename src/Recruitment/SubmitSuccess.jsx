@@ -53,12 +53,12 @@ const SubmitSuccess = () => {
   return (
     <Layout>
       <Img
-        src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/sm_logo.svg"
+        src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg"
         alt="logo"
       />
       <Container>
         <Img
-          src="https://sooklion-bucket.s3.ap-northeast-2.amazonaws.com/StarLion.svg"
+          src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/StarLion.svg"
           alt="lion"
         />
         <Text fontSize="26px" fontWeight="800">

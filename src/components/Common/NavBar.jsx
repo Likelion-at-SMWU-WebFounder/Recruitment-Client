@@ -124,7 +124,7 @@ const NavBar = () => {
       <Desktop>
         <Nav>
           <Link to="/home">
-            <img src="Logo.svg" alt="Logo" />
+            <img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Logo.svg" alt="Logo" />
           </Link>
           <ul>
             <li>
@@ -170,10 +170,10 @@ const NavBar = () => {
         <MobileNav>
           <RowBox>
             <Link to="/home">
-              <img src="Logo.svg" alt="Logo" />
+              <img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Logo.svg" alt="Logo" />
             </Link>
             <img
-              src="hamburger.svg"
+              src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/hamburger.svg"
               alt="hamburger"
               onClick={toggleSidebar}
               style={{ width: '3rem' }}

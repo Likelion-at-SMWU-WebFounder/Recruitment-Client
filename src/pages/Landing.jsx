@@ -122,7 +122,7 @@ const Landing = () => {
                 {text} <br></br> {text2}
               </Slogan>
               <S.ColumnBox>
-                <Img src="lion.svg" alt="lion" />
+                <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg" alt="lion" />
                 <LinkToAboutUsContainer>
                   <LinkToAboutUs onClick={onClick}>
                     <BoldText>숙명여대 멋쟁이사자처럼 </BoldText>
@@ -137,7 +137,7 @@ const Landing = () => {
       <Mobile>
         <Container>
           <Img
-            src="lion.svg"
+            src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg"
             alt="lion"
             style={{ width: '80%', height: 'auto', marginTop: '-60px' }}
           />

@@ -56,9 +56,9 @@ const SubmitFail = () => {
   
   return (
     <Layout>
-     <Img src="/public/SMLogo.svg" alt="logo" />
+     <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/SMLogo.svg" alt="logo" />
     <Container>
-      <Img src="/public/StarLion.svg" alt="lion" />
+      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/StarLion.svg" alt="lion" />
       <Text fontSize="26px" fontWeight="800">이미 지원 접수되었습니다.</Text>
       <Text fontSize="22px" fontWeight="lighter" marginTop="25px">지원접수는 1회까지만 가능합니다.</Text>
       <Text fontSize="22px" fontWeight="lighter" marginTop="5px">관련 문의: sookmyung@likelion.org</Text>

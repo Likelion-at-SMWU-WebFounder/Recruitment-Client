@@ -135,7 +135,7 @@ const NonRecruit = () => {
     try {
       console.log('Sending email data:', { emailAdd: email });
   
-      const response = await axios.post(`${API_BASE_URL}/api/recruit/mail`, { emailAdd: email });
+      const response = await axios.post(`http://52.79.255.210:8080/api/recruit/mail`, { emailAdd: email });
   
       console.log('Response data:', response.data);
 

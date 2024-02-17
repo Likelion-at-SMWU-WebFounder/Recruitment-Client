@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const ProjectForm = () => {
   const [formData, setFormData] = useState({
-    id: '', // 추가: 프로젝트의 ID
+    id: '',
     bgImg: '',
     content: '',
     gitBeUrl: '',
@@ -28,19 +28,16 @@ const ProjectForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // ID를 가지고 있는 경우 PUT 요청을 보냅니다.
       if (formData.id) {
         const response = await axios.put(`http://52.79.255.210:8080/api/project/${formData.id}`, formData);
         console.log('Update Response:', response.data);
       } else {
-        // ID가 없는 경우에는 새로운 프로젝트를 생성하는 POST 요청을 보냅니다.
         const response = await axios.post('http://52.79.255.210:8080/api/project', formData);
         console.log('Create Response:', response.data);
       }
-      // 처리 완료 후 필요한 작업 수행
+
     } catch (error) {
       console.error('Error:', error);
-      // 에러 처리
     }
   };
 
@@ -48,10 +45,10 @@ const ProjectForm = () => {
     try {
       const response = await axios.put(`http://52.79.255.210:8080/api/project/${formData.id}`, formData);
       console.log('Update Response:', response.data);
-      // 처리 완료 후 필요한 작업 수행
+
     } catch (error) {
       console.error('Error:', error);
-      // 에러 처리
+
     }
   };
 

@@ -104,6 +104,19 @@ const ResultBox = styled.div`
   }
 `;
 
+const getTrackText = (track) => {
+  switch (track) {
+    case 'pm':
+      return '기획/디자인';
+    case 'fe':
+      return '프론트엔드';
+    case 'be':
+      return '백엔드';
+    default:
+      return '';
+  }
+};
+
 const FinalVerification = () => {
   const [name, setName] = useState('');
   const [studentId, setStudentId] = useState('');
@@ -128,6 +141,7 @@ const FinalVerification = () => {
           setFinalResult({
             name: result.name,
             message: result.interview.toLowerCase(),
+            track: result.track,
           });
         }
       } else {
@@ -189,6 +203,7 @@ const FinalVerification = () => {
           <FinalResult
             name={name}
             message={finalResult && finalResult.message}
+            track={finalResult && getTrackText(finalResult.track)}
           />
         )}
       </Container>

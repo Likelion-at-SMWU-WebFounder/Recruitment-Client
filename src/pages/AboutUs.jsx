@@ -392,7 +392,7 @@ const AboutUs = () => {
           <S.RowBox>
             <Slogan fontSize="40px">
               전국 최대 규모 개발 · 창업 동아리
-              <br /> <OrangeText>멋쟁이 사자처럼</OrangeText>의 숙명여대
+              <br /> <OrangeText>멋쟁이사자처럼</OrangeText>의 숙명여대
               지부입니다.
               <br /> <br />
               개발, 기획, 디자인의 열정이 가득한

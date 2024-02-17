@@ -5,11 +5,25 @@ import axios from "axios";
 import { questions, agree, scheduleData, required } from "./data";
 
 const Question = () => {
+  
   const { part } = useParams();
   const navigate = useNavigate();
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileSelect = (e) => {
+    const files = Array.from(e.target.files);
+    setSelectedFiles(files);
+  };
+
   let partName = "";
   let backgroundImage = "";
+
+  // 이메일 유효검사
+  function emailCheck(email_address) {
+    const email_regex = new RegExp(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/);
+    return !email_regex.test(email_address);
+  }
 
   const getTrackField = (part) => {
     switch (part) {
@@ -76,6 +90,15 @@ const Question = () => {
       alert("학번은 7자리로 입력해주세요.");
       value = value.slice(0, 7);
     }
+
+    if (index === 19) {
+      // 입력된 값이 숫자가 아닌 경우에만 알림 표시
+      if (!/^[0-9]*$/.test(value)) {
+        alert("비밀번호는 숫자로만 입력해주세요.");
+        return;
+      }
+    }
+
     if (index === 23) {
       newAnswers[index] = fileName;
     } else {
@@ -142,6 +165,9 @@ const Question = () => {
     } else if (hasInterviewDate) {
       alert("면접 가능 일자가 선택되지 않았습니다. 확인 후 다시 제출해주세요.");
       return;
+    } else if (emailCheck(answers[22])) {
+      alert("유효한 이메일 형식으로 입력해주세요.");
+      return;
     } else {
       // 모든 필수 입력 폼이 작성된 경우, 서버로 데이터 전송 후 페이지 이동
       try {
@@ -184,32 +210,30 @@ const Question = () => {
           interview_time: interviewTimes,
         };
 
-        response = await axios.post(apiUrl, requestBody);
 
-        if (response.data.isSuccess) {
-          // 중복된 학번이 제출되었을 때의 처리
-          if (response.data.code === 404) {
-            window.alert(response.data.message);
-          } else {
-            const confirmation = window.confirm(response.data.message);
-            if (confirmation) {
-              // 확인을 누르면 머무르도록 함
-              return; // 이 부분이 추가된 부분입니다.
+        const confirmation = window.confirm(
+          "제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?"
+        );
+        if (confirmation) {
+          try {
+            const response = await axios.post(apiUrl, requestBody);
+
+            if (response.data.code === 404) {
+              window.alert(response.data.message);
+              return;
+            } else {
+              setSubmitted(true);
+              navigate("/recruitment/submit-success");
             }
-          }
-        } else {
-          setSubmitted(true);
-          const confirmation = window.confirm(
-            "제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?"
-          );
-          if (confirmation) {
-            navigate("/recruitment/submit-success");
+          } catch (error) {
+            console.error("서버 전송 중 오류 발생:", error);
           }
         }
       } catch (error) {
         console.error("서버 전송 중 오류 발생:", error);
       }
     }
+
 
     try {
       const trackfield = getTrackField(part);
@@ -277,7 +301,7 @@ const Question = () => {
 
       // AWS S3 업로드 API 엔드포인트와 업로드 설정에 따라 수정 필요
       const response = await axios.post(
-        "http://52.79.255.210:8080/api/recruit/docs?track=${shortTrack}",
+        "https://sooklionadmin.shop/api/recruit/docs?track=${shortTrack}",
         formData
       );
 
@@ -319,12 +343,12 @@ const Question = () => {
           <TitleText>&nbsp;서류 작성 페이지 입니다.</TitleText>
         </Row>
         <Text fontSize="20px" marginTop="45px" style={{ fontWeight: "200" }}>
-          &nbsp;&nbsp;*필수 입력 폼은 전부 작성해야 합니다.
+          &nbsp;&nbsp;*필수 입력 폼은 모두 작성하셔야 합니다.
         </Text>
         <Hr marginTop="80px" marginBottom="70px" />
         <Row>
           <FormContainer>
-            <Text fontSize="20px">성함</Text>
+            <Text fontSize="20px">성함 *</Text>
             <Input
               autocomplete="off"
               placeholder="김멋사"
@@ -336,7 +360,7 @@ const Question = () => {
             />
           </FormContainer>
           <FormContainer>
-            <Text fontSize="20px">전화번호</Text>
+            <Text fontSize="20px">전화번호 *</Text>
             <Input
               autocomplete="off"
               placeholder="01012345678"
@@ -349,7 +373,7 @@ const Question = () => {
         </Row>
         <Row>
           <FormContainer>
-            <Text fontSize="20px">학번</Text>
+            <Text fontSize="20px">학번 *</Text>
             <Input
               autocomplete="off"
               placeholder="2345789"
@@ -361,7 +385,7 @@ const Question = () => {
             />
           </FormContainer>
           <FormContainer>
-            <Text fontSize="20px">전공</Text>
+            <Text fontSize="20px">전공 *</Text>
             <Input
               autocomplete="off"
               placeholder="미디어학부, 인공지능공학부"
@@ -379,7 +403,7 @@ const Question = () => {
         </Row>
         <Row>
           <FormContainer>
-            <Text fontSize="20px">수료 학기</Text>
+            <Text fontSize="20px">수료 학기 *</Text>
             <Input
               autocomplete="off"
               placeholder="3"
@@ -391,7 +415,7 @@ const Question = () => {
             />
           </FormContainer>
           <FormContainer>
-            <Text fontSize="20px">재/휴학 여부</Text>
+            <Text fontSize="20px">재/휴학 여부 *</Text>
             <Select
               width="125px"
               value={answers[5]}
@@ -404,7 +428,7 @@ const Question = () => {
         </Row>
         <Row>
           <FormContainer>
-            <Text fontSize="20px">졸업 예정 연도</Text>
+            <Text fontSize="20px">졸업 예정 연도 *</Text>
             <Input
               autocomplete="off"
               placeholder="2026년 2월"
@@ -441,7 +465,7 @@ const Question = () => {
             </Select>
           </FormContainer>
           <FormContainer>
-            <Text fontSize="20px" marginLeft="80px">
+            <Text fontSize="20px" marginLeft="90px">
               프로그래머스 수강 인증 &nbsp;
               <ProLink
                 style={{ fontWeight: "300" }}
@@ -450,10 +474,9 @@ const Question = () => {
               >
                 https://programmers.co.kr/learn/courses/2
               </ProLink>
-              <span style={{ fontWeight: "300", fontSize: "20px" }}>
-                - 1~11 강{" "}
+              <span style={{ fontWeight: "300", fontSize: "15px" }}>
+                - 1~11 강 *.zip 파일 1개 업로드 가능{" "}
               </span>
-              (선택)
             </Text>
           </FormContainer>
         </Row>
@@ -461,13 +484,19 @@ const Question = () => {
           <FormContainer>
             <FileUploadContainer>
               {/*programmersImg*/}
-              <FileInputLabel>
+              <FileInputLabel style={{ marginLeft: "30px" }}>
                 {fileName ? fileName : "파일 업로드  +"}
                 <FileInput
                   type="file"
+                  multiple
                   onChange={handleImageUpload} // 파일 업로드 핸들러로 변경
                 />
               </FileInputLabel>
+              <SelectedFilesContainer>
+                {selectedFiles.map((file, index) => (
+                  <SelectedFile key={index}>{file.name}</SelectedFile>
+                ))}
+              </SelectedFilesContainer>
             </FileUploadContainer>
           </FormContainer>
         </Row>
@@ -615,7 +644,11 @@ const Question = () => {
             있습니다.
           </span>
         </Text>
-        {!submitted && <SubmitButton type="submit">제출하기</SubmitButton>}
+        {!submitted && (
+        <SubmitButtonContainer>
+          <SubmitButton type="submit">제출하기</SubmitButton>
+        </SubmitButtonContainer>
+      )}
       </form>
     </>
   );
@@ -662,6 +695,12 @@ const Row = styled.div`
   padding: 10px;
 `;
 
+const SubmitButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+`;
+
 const SubmitButton = styled.button`
   font-size: 22px;
   padding: 15px;
@@ -671,8 +710,6 @@ const SubmitButton = styled.button`
   font-weight: 600;
   width: 220px;
   border: none;
-  margin-left: 500px;
-  margin-top: 50px;
 `;
 
 const CheckboxContainer = styled.div`
@@ -807,9 +844,17 @@ const FileInputLabel = styled.label`
   margin-left: 25px;
 `;
 
+const SelectedFilesContainer = styled.div`
+  margin-top: 10px;
+`;
+
+const SelectedFile = styled.div`
+  margin-top: 5px;
+`;
+
 const ProLink = styled.a`
   cursor: pointer;
-  font-size: 20px;
+  font-size: 14px;
   color: white;
 `;
 const AgreeContainer = styled.div`

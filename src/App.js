@@ -60,10 +60,11 @@ function App() {
               element={<SubmitSuccess />}
             />
             <Route path="/recruitment/submit-fail" element={<SubmitFail />} />
-            <Route /* 1차 발표 때 FirstVerification, 최종 발표 때 FinalVerification */
+            {/* 1차 발표 때 FirstVerification, 최종 발표 때 FinalVerification */}
+            {/*<Route 
               path="/recruitment/result-verification"
               element={<FinalVerification />}
-            />
+            />*/}
             <Route path="/contact" element={LayOut(Contact)} />
             <Route path="/makers" element={LayOut(Makers)} />
             {/*<Route path="/form" element={<ProjectForm projectId={1}/>} />*/}

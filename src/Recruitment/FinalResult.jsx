@@ -70,7 +70,7 @@ const Container = styled.div`
 
 const PassContainer = styled.div`
   display: ${(props) => (props.message === 'pass' ? 'block' : 'none')};
-  background-image: url('Confetti.svg');
+  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Confetti.svg');
   background-size: 60% auto;
   background-position: left top;
   background-repeat: no-repeat;
@@ -148,7 +148,8 @@ const ColorText = styled.span`
   }
 `;
 
-const FinalResult = ({ name, message }) => {
+
+const FinalResult = ({ name, message, track }) => {
   
 
   return (
@@ -164,7 +165,7 @@ const FinalResult = ({ name, message }) => {
         </BoxContainer>
         <BoxContainer>
             <Text>우선, 치열한 경쟁 속에서 운영진들과 거듭 회의를 거쳐 결정된 결과인 만큼 한 해 동안 끝까지 함께하길 희망한다는 말씀부터 드립니다.</Text>
-            <Text><ColorText color='#E67800'>프론트엔드 트랙</ColorText>에 지원하신 
+            <Text><ColorText color='#E67800'>{track} 트랙</ColorText>에 지원하신 
             <ColorText color='#E67800'> {name}님</ColorText>은 멋쟁이사자처럼 12기에 
             <ColorText color='#E67800'> 최종 합격</ColorText>하셨습니다.</Text>
             <Text>오늘 중으로 카카오톡 단체방에 초대될 예정이며, 관련 공지 참고해 주시길 바랍니다.</Text>
@@ -174,7 +175,7 @@ const FinalResult = ({ name, message }) => {
         </BoxContainer>
         <BoxContainer>
         <Text>숙명여대 멋쟁이사자처럼 운영진 드림</Text>
-        <Lion src="WinkingLion.svg" alt="lion" />
+        <Lion src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/WinkingLion.svg" alt="lion" />
         <Hr />
       </BoxContainer>
       </PassContainer>

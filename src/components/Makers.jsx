@@ -45,7 +45,6 @@ const Layout = styled.div`
   display: flex;
   padding-left: 100px;
   padding-right: 20px;
-  background-color: #111111;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -73,7 +72,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111111;
   color: white;
   width: 100%;
   margin-left: -20px;

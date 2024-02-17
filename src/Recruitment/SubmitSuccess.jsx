@@ -70,15 +70,9 @@ const SubmitSuccess = () => {
           marginTop="10px"
           style={{ textAlign: "center" }}
         >
-<<<<<<< HEAD
           정상적 서류 접수 여부는 확인을 위해 메일 발송해드렸습니다.
           <br />
           멋쟁이사자처럼 숙명여대 12기 모집에 지원해주셔서 감사합니다.{" "}
-=======
-          정상적 서류 접수 여부는 확인 메일 발송해드리겠습니다.
-          <br />
-          멋쟁이 사자처럼 숙명여대 12기 모집에 지원해주셔서 감사합니다.{" "}
->>>>>>> cbc4cdc8d2756ef0b4ffc18841fbee193bc758c4
         </Text>
         <Link to="/home" style={{ textDecoration: "none" }}>
           <ResultBox>홈으로</ResultBox>

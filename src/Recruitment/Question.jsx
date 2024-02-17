@@ -211,11 +211,16 @@ const Question = () => {
           interview_time: interviewTimes,
         };
 
+<<<<<<< HEAD
 
+=======
+        response = await axios.post(apiUrl, requestBody);
+>>>>>>> cbc4cdc8d2756ef0b4ffc18841fbee193bc758c4
         const confirmation = window.confirm(
           "제출 이후에는 작성내용 조회 및 수정, 지원 취소가 불가합니다. 제출하시겠습니까?"
         );
         if (confirmation) {
+<<<<<<< HEAD
           try {
             const response = await axios.post(apiUrl, requestBody);
 
@@ -228,7 +233,15 @@ const Question = () => {
             }
           } catch (error) {
             console.error("서버 전송 중 오류 발생:", error);
+=======
+          if (response.data.code === 404) {
+            window.alert(response.data.message);
+            return;
+          } else {
+            navigate("/recruitment/submit-success");
+>>>>>>> cbc4cdc8d2756ef0b4ffc18841fbee193bc758c4
           }
+          setSubmitted(true);
         }
       } catch (error) {
         console.error("서버 전송 중 오류 발생:", error);

@@ -20,7 +20,7 @@ jobs:
           pip3 install awscli --upgrade --user
 
       - name: Build project
-        run: env-cmd -f .env.production npm install && env-cmd -f .env.production npm run build
+        run: npm install && npm run build
 
       - name: Deploy to S3
         env:

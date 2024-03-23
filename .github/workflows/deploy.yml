@@ -17,17 +17,21 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build static file
+      - name: Set up environment variables
         run: |
-          npm install -g env-cmd # env-cmd 설치
-          env-cmd -f .env.production npm run build # .env.production 파일 사용하여 build
+          echo "REACT_APP_API_ROOT=${{ secrets.REACT_APP_API_ROOT }}" >> .env.production
+          echo "REACT_APP_HOME_URL=${{ secrets.REACT_APP_HOME_URL }}" >> .env.production
+          echo "REACT_APP_IMAGE_URL=${{ secrets.REACT_APP_IMAGE_URL }}" >> .env.production
+
+      - name: Build static file
+        run: npm run build
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy static site to S3 bucket
         run: aws s3 sync ./build s3:smwu-likelion.com

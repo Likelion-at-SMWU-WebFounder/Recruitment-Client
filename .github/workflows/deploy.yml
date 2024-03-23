@@ -14,7 +14,6 @@ jobs:
       - name: Set up environment variables
         run: |
           echo "REACT_APP_API_ROOT=${REACT_APP_API_ROOT}" >> .env.production
-          echo "REACT_APP_HOST=${REACT_APP_HOST}" >> .env.production
           echo "REACT_APP_IMAGE_URL=${REACT_APP_IMAGE_URL}" >> .env.production
 
       - name: Setup node

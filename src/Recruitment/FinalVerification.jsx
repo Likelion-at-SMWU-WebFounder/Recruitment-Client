@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import axios from 'axios';
 import FinalResult from './FinalResult';
 
-// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-// export const HOME_URL = process.env.REACT_APP_HOME_URL;
 
 const Text = styled.div`
   color: white;
@@ -25,7 +23,6 @@ const Text = styled.div`
 const Layout = styled.div`
   display: flex;
   padding: 100px;
-  background-color: #111111;
 `;
 
 const Img = styled.img`
@@ -40,7 +37,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111111;
   color: white;
   width: 100%;
 
@@ -160,7 +156,7 @@ const FinalVerification = () => {
         {finalResult ? null : (
           <>
             <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg" alt="logo" />
-            <Text marginBottom="60px" MobileFontSize="24px">
+            <Text marginBottom="60px" MobileFontSize="21px">
               최종 심사 결과확인
             </Text>
             <BoxContainer>

@@ -23,7 +23,6 @@ const Text = styled.div`
 const Layout = styled.div`
     display: flex;
     padding: 0px;
-    background-color: #111111;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -58,7 +57,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: left;
-    background-color: #111111;
     color: white;
     width: 100%;
 `;
@@ -96,10 +94,10 @@ const ResultBox = styled.div`
     padding: 10px;
     font-size: 30px;
     font-weight: 700;
-    color: #111111;
     margin-top: 10px;
     background: linear-gradient(180deg, #EB9537 5.52%, #ECC08F 96.15%);
     cursor: pointer;
+    color: #111111;
 
     @media (max-width: 480px) {
         padding: 5px;
@@ -111,7 +109,7 @@ const ResultBox = styled.div`
 `;
 
 
-const FirstResult = ({ name, message }) => {
+const FirstResult = ({ name, message, interviewTime }) => {
     return (
         <Layout>
             <Container>
@@ -122,16 +120,15 @@ const FirstResult = ({ name, message }) => {
                         <Text>안녕하세요, 숙명여대 멋쟁이사자처럼 입니다.</Text>
                         <Text>2024 멋쟁이사자처럼 12기 서류 전형 "합격"을 진심으로 축하드립니다.</Text>
                         <Text>{name} 지원자님이 선택하셨던 면접 시간을 고려하여 아래의 일정으로 면접 전형을 진행할 예정입니다.</Text>
-                        <Text>서류 접수 시 작성한 이메일로 서류 합격 메일도 발송되었습니다.</Text>
                     </BoxContainer>
                     <BoxContainer>
-                        <Text>1. 면접 일시: 메일 확인 부탁드립니다. </Text>
+                        <Text>1. 면접 일시: {interviewTime} </Text>
                         <Text>2. 면접 장소: 본교 명신관 505호 (대면 면접)</Text>
-                        <Text>3. 회신 사항: 면접 참석 여부를 금일 16시까지 반드시 메일로 회신 부탁드립니다.</Text>
+                        <Text>3. 회신 사항: 면접 참석 여부를 금일 16시까지 반드시 받으신 문자 번호로 회신 부탁드립니다.</Text>
                     </BoxContainer>
                     <BoxContainer>
                         <Text>*면접 시간 10분 전까지 대기실(명신관 603호)에 착석해 주시길 바랍니다.</Text>
-                        <Text>*추가로 불가피한 사정으로 면접 시간 변경이 필요한 경우, 마찬가지로 메일 회신 부탁드립니다.</Text>
+                        <Text>*불가피한 사정으로 면접 시간 변경이 필요한 경우, 마찬가지로 문자 회신 부탁드립니다.</Text>
                     </BoxContainer>
                     <BoxContainer>
                         <Text>숙명여대 멋쟁이사자처럼 운영진 드림</Text>

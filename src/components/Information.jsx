@@ -182,7 +182,7 @@ const RoundedBox = styled.div`
 const Information = () => {
   return (
     <FormContainer>
-      <Text marginTop='90px' marginLeft="-450px">멋쟁이사자처럼 숙명여대는 이런 사람을 찾습니다!</Text>
+      <Text marginTop='130px' marginLeft="-450px">멋쟁이사자처럼 숙명여대는 이런 사람을 찾습니다!</Text>
       <SmallContainer marginLeft="-500px">
         <SmallText>• 코딩을 배워보고 싶은 <BoldText>왕초보</BoldText></SmallText>
         <SmallText>• 나만의 아이디어를 <BoldText>웹 서비스로 구현 및 배포</BoldText> 해보고 싶은 사람</SmallText>

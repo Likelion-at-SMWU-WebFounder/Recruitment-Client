@@ -45,7 +45,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111111;
   color: white;
   width: 100%;
   background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
@@ -78,7 +77,7 @@ const ResultBox = styled.div`
 
   
   @media (min-width: 768px) and (max-width: 1024px) {
-    width: 250px;
+    width: 270px;
     font-size: 25px;
     margin-top: 40px;
     height: 65px;
@@ -87,7 +86,7 @@ const ResultBox = styled.div`
 
 
   @media (max-width: 480px) {
-    width: 130px;
+    width: 150px;
     font-size: 13px;
     margin-top: 40px;
     height: 40px;
@@ -97,7 +96,7 @@ const ResultBox = styled.div`
 
 const ColorText = styled.span`
   color: ${(props) => props.color};
-  font-size: 47px;
+  font-size: 43px;
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 26px;
@@ -115,14 +114,14 @@ const FirstRecruit = () => {
   return (
     <Layout>
     <Container>
-      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/RecruitLion.svg" alt="lion" />
+      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/EndLion.svg" alt="lion" />
       
-      <Text>숙명여대 멋쟁이사자처럼 <ColorText fontSize="43px" color="#EB9537">1차 서류 심사</ColorText>가 완료되었습니다.</Text>
-      <Text>지원자 1차 심사 결과확인은 하단 링크를 통해 확인이 가능합니다.</Text>
+      <Text>멋쟁이사자처럼 숙명여대 <ColorText fontSize="43px" color="#EB9537">면접 심사 진행 중</ColorText>입니다.</Text>
+      <Text>최종 합격자는 <ColorText fontSize="43px" color="#EB9537">3월 5일 화요일</ColorText>에 발표합니다.</Text>
       
     
-      <Link to="/recruitment/result-verification" style={{ textDecoration: 'none' }}>
-    <ResultBox>1차 심사 결과 확인</ResultBox></Link>
+      {/*<Link to="/recruitment/result-verification" style={{ textDecoration: 'none' }}>
+    <ResultBox>1차 심사 결과 확인</ResultBox></Link>*/}
 
     <Information />
     </Container>

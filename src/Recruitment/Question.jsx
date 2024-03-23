@@ -128,6 +128,10 @@ const Question = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  const handleEnd = () => {
+    window.alert("2/23(금) 18:00 서류 제출 마감 시간이 초과되었습니다. ");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let response;

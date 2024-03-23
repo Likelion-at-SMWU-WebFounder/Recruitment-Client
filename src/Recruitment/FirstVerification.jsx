@@ -25,7 +25,6 @@ const Text = styled.div`
 const Layout = styled.div`
   display: flex;
   padding: 100px;
-  background-color: #111111;
 `;
 
 const Img = styled.img`
@@ -41,7 +40,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111111;
   color: white;
   width: 100%;
   
@@ -121,11 +119,11 @@ const FirstVerification = () => {
         password
       });
 
-      const { isSuccess, result, message } = response.data;
+      const { isSuccess, result, message, interviewTime } = response.data;
 
       if (isSuccess) {
             if (result.docs === 'PASS' || result.docs === 'REJECT') {
-            setFinalResult({ name: result.name, message: result.docs.toLowerCase() });
+            setFinalResult({ name: result.name, message: result.docs.toLowerCase(), interviewTime: result.interviewTime });
             }
         } else {
             console.error('Error:', message);
@@ -143,7 +141,7 @@ const FirstVerification = () => {
       {finalResult ? null : (
         <>
             <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg" alt="logo" />
-            <Text marginBottom="60px" MobileFontSize="24px">1차 심사 결과 확인</Text>
+            <Text marginBottom="60px" MobileFontSize="20px">1차 심사 결과 확인</Text>
             <BoxContainer>
             <Text>성함</Text>
             <Input
@@ -180,7 +178,7 @@ const FirstVerification = () => {
         )}
 
         {finalResult && (
-        <FirstResult name={name} message={finalResult && finalResult.message} />
+        <FirstResult name={name} message={finalResult && finalResult.message} interviewTime={finalResult && finalResult.interviewTime}/>
         )}
 
       </Container>

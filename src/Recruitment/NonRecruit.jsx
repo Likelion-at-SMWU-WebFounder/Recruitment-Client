@@ -39,7 +39,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #111111;
     color: white;
     width: 100%;
     background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
@@ -108,11 +107,41 @@ const Container = styled.div`
       border-radius: 10px;
       height: 30px;
       width: 80px;
-      font-size: 13px;
+      font-size: 11px;
       margin-left: 10px;
     }
   }
 
+`;
+
+const NotionBox = styled.a`
+  width: 900px;
+  height: 80px;
+  border: 2px solid #ffffff;
+  border-radius: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 70px;
+  text-decoration: none;
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 700px;
+    height: 55px;
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 480px) {
+    width: 340px;
+    height: 35px;
+    font-size: 12px;
+    margin-top: 40px;
+  }
 `;
 
 
@@ -161,11 +190,12 @@ const NonRecruit = () => {
   return (
     <Layout>
       <Container>
-        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/SadLion.svg" alt="lion" />
-        <Text>지금은 모집기간이 아닙니다.</Text>
-        <Text>숙명여대 멋쟁이사자처럼 모집이 시작되면 메일을 보내드립니다.</Text>
+        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/EndLion.svg" alt="lion" />
+        <Text>서류 제출이 마감되었으며, 1차 서류 발표는 2/27(화) 9시입니다.</Text>
+        <Text>숙명여대 멋쟁이사자처럼에 지원해 주셔서 감사합니다.</Text>
+        <NotionBox href='https://tattered-cabinet-6cd.notion.site/12-at-Sookmyung-db2f25f1f35c48a6b068dbc5e33577e4?pvs=4' target="_blank">숙명여대 멋쟁이사자처럼 리쿠르팅 홍보 노션 확인하기</NotionBox>
 
-        {/* 버튼에 onClick 이벤트 추가 */}
+        {/* 버튼에 onClick 이벤트 추가 
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -176,7 +206,7 @@ const NonRecruit = () => {
           <button type="submit" onClick={handleSubmit}>
             알림 신청
           </button>
-        </form>
+        </form>*/}
 
         <Information />
       </Container>

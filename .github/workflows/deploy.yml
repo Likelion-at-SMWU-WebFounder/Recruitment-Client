@@ -13,8 +13,8 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          echo "REACT_APP_API_ROOT=${REACT_APP_API_ROOT}" >> .env.production
-          echo "REACT_APP_IMAGE_URL=${REACT_APP_IMAGE_URL}" >> .env.production
+          echo "REACT_APP_API_ROOT=${{ secrets.REACT_APP_API_ROOT }}" >> .env.production
+          echo "REACT_APP_IMAGE_URL=${{ secrets.REACT_APP_IMAGE_URL }}" >> .env.production
 
       - name: Setup node
         uses: actions/setup-node@v2

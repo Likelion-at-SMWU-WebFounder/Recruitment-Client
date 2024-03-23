@@ -11,17 +11,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Set up environment variables
+        run: |
+          echo "REACT_APP_API_ROOT=${REACT_APP_API_ROOT}" >> .env.production
+          echo "REACT_APP_HOST=${REACT_APP_HOST}" >> .env.production
+          echo "REACT_APP_IMAGE_URL=${REACT_APP_IMAGE_URL}" >> .env.production
+
       - name: Setup node
         uses: actions/setup-node@v2
 
       - name: Install dependencies
         run: npm install
-
-      - name: Set up environment variables
-        run: |
-          echo "REACT_APP_API_ROOT=${{ secrets.REACT_APP_API_ROOT }}" >> .env.production
-          echo "REACT_APP_HOME_URL=${{ secrets.REACT_APP_HOME_URL }}" >> .env.production
-          echo "REACT_APP_IMAGE_URL=${{ secrets.REACT_APP_IMAGE_URL }}" >> .env.production
 
       - name: Build static file
         run: npm run build

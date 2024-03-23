@@ -1,21 +1,24 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const Footer = () => {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate('/makers');
+    navigate("/makers");
   };
   return (
     <FooterContainer>
-      <LogoImg src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/footerLogo.svg" alt="footerLogo" />
+      <LogoImg
+        src={`${process.env.REACT_APP_IMAGE_URL}/footerLogo.svg`}
+        alt="footerLogo"
+      />
       <LikelionSMWU>멋쟁이사자처럼 숙명여대</LikelionSMWU>
       <CopyRight>
         Copyrightⓒ2023 멋쟁이사자처럼 숙명여대 All rights reserved.
       </CopyRight>
       <br></br>
-      <SiteMakers onClick={onClick}>홈페이지 만든사람들{'>'}</SiteMakers>
+      <SiteMakers onClick={onClick}>홈페이지 만든사람들{">"}</SiteMakers>
     </FooterContainer>
   );
 };

@@ -1,7 +1,73 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
-import Information from '../components/Information';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import styled from "styled-components";
+import Information from "../../components/Information";
+import { useNavigate } from "react-router-dom";
+
+const Recruit = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const navigate = useNavigate();
+
+  const handlePartClick = (part) => {
+    navigate(`/recruitment/${part}`);
+  };
+
+  return (
+    <Layout>
+      <Container>
+        <Img
+          src={`${process.env.REACT_APP_IMAGE_URL}/RecruitLion.svg`}
+          alt="lion"
+        />
+
+        <Text>
+          {" "}
+          멋쟁이사자처럼 숙명여대 리크루팅 페이지에 오신 것을 환영합니다.
+        </Text>
+        <Text>희망 지원파트에 접속하시어 서류접수를 진행해주세요. </Text>
+
+        <ChangeText>
+          *예상치 못한 상황(서버 불안정 등)에 대비하여 마감일 전 미리 질문을
+          확인 및 답변 내용을 따로 백업하신 후, 지원서를 제출하시기 바랍니다.
+        </ChangeText>
+
+        <PartContainer>
+          <PartBox
+            background="linear-gradient(180deg, #FFEF98 33.65%, #FCF6D6 100%, #FCF6D6 100%)"
+            onClick={() => handlePartClick("plan")}
+          >
+            기획 · 디자인
+          </PartBox>
+          <PartBox
+            background="linear-gradient(180deg, #C387FF 5.52%, #E4CFFF 58.65%)"
+            onClick={() => handlePartClick("frontend")}
+          >
+            프론트엔드
+          </PartBox>
+          <PartBox
+            background="linear-gradient(180deg, #98AFFF 23.75%, #DAE1F9 100%)"
+            onClick={() => handlePartClick("backend")}
+          >
+            백엔드
+          </PartBox>
+        </PartContainer>
+
+        <NotionBox
+          href="https://tattered-cabinet-6cd.notion.site/12-at-Sookmyung-db2f25f1f35c48a6b068dbc5e33577e4?pvs=4"
+          target="_blank"
+        >
+          숙명여대 멋쟁이사자처럼 리쿠르팅 홍보 노션 확인하기
+        </NotionBox>
+
+        <Information />
+      </Container>
+    </Layout>
+  );
+};
+
+export default Recruit;
 
 const Text = styled.div`
   color: white;
@@ -17,13 +83,12 @@ const Text = styled.div`
     font-size: 25px;
     line-height: 38px;
   }
-  
+
   @media (max-width: 480px) {
     font-size: 13px;
     line-height: 22px;
   }
 `;
-
 
 const Layout = styled.div`
   display: flex;
@@ -66,7 +131,7 @@ const Container = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
+  background-image: url("${process.env.REACT_APP_IMAGE_URL}/Banner.svg");
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
@@ -154,44 +219,3 @@ const NotionBox = styled.a`
     margin-top: 40px;
   }
 `;
-
-const Recruit = () => {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const navigate = useNavigate();
-
-  const handlePartClick = (part) => {
-    navigate(`/recruitment/${part}`);
-  };
-
-  return (
-    <Layout>
-    <Container>
-      <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/RecruitLion.svg" alt="lion" />
-
-      <Text> 숙명여대 멋쟁이사자처럼 리크루팅 페이지에 오신 것을 환영합니다.</Text>
-      <Text>희망 지원파트에 접속하시어 서류접수를 진행해주세요. </Text>
-
-        <ChangeText>*예상치 못한 상황(서버 불안정 등)에 대비하여 마감일 전 미리 질문을 확인 및 답변 내용을 따로 백업하신 후, 지원서를 제출하시기 바랍니다.</ChangeText>
-      
-
-      <PartContainer>
-        <PartBox background='linear-gradient(180deg, #FFEF98 33.65%, #FCF6D6 100%, #FCF6D6 100%)' onClick={() => handlePartClick('plan')}>기획 · 디자인</PartBox>
-        <PartBox background='linear-gradient(180deg, #C387FF 5.52%, #E4CFFF 58.65%)' onClick={() => handlePartClick('frontend')}>프론트엔드</PartBox>
-        <PartBox background='linear-gradient(180deg, #98AFFF 23.75%, #DAE1F9 100%)' onClick={() => handlePartClick('backend')}>백엔드</PartBox>
-      </PartContainer>
-      
-    
-    <NotionBox href='https://tattered-cabinet-6cd.notion.site/12-at-Sookmyung-db2f25f1f35c48a6b068dbc5e33577e4?pvs=4' target="_blank">숙명여대 멋쟁이사자처럼 리쿠르팅 홍보 노션 확인하기</NotionBox>
-
-
-    <Information />
-    </Container>
-    </Layout>
-  );
-};
-
-export default Recruit;

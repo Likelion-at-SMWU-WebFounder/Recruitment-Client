@@ -1,5 +1,78 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+
+const Information = () => {
+  return (
+    <FormContainer>
+      <Text marginTop="130px" marginLeft="-450px">
+        멋쟁이사자처럼 숙명여대는 이런 사람을 찾습니다!
+      </Text>
+      <SmallContainer marginLeft="-500px">
+        <SmallText>
+          • 코딩을 배워보고 싶은 <BoldText>왕초보</BoldText>
+        </SmallText>
+        <SmallText>
+          • 나만의 아이디어를 <BoldText>웹 서비스로 구현 및 배포</BoldText>{" "}
+          해보고 싶은 사람
+        </SmallText>
+        <SmallText>
+          • 혼자 공부는 그만! 사람들과 <BoldText>함께 웹 개발을 공부</BoldText>
+          하고, <BoldText>개발 인적 네트워킹을 형성</BoldText>하고 싶은 사람
+        </SmallText>
+        <SmallText>
+          • 1년 간 멋쟁이사자처럼에서 활동하고 여름방학 동안 진행하는{" "}
+          <BoldText>장기 해커톤</BoldText>에 참가할 수 있는 사람
+        </SmallText>
+        <SmallText>
+          • <BoldText>매주 화요일 저녁 7시 ~ 9시</BoldText>에 동아리에 참여할 수
+          있는 사람
+        </SmallText>
+        <SmallText>
+          • 포기하지 않고 <BoldText>도전하는 사람</BoldText>
+        </SmallText>
+        <SmallText>
+          • 모르는 것을 창피해 하지 않는 사람 모른다고 숨는 사람보다는{" "}
+          <BoldText>적극적으로 질문하고 성장</BoldText>하려는 사람
+        </SmallText>
+        <SmallText>
+          • 완성형인 사람보다 <BoldText>함께 성장하고자 하는 사람</BoldText>
+        </SmallText>
+      </SmallContainer>
+      <TextBox>
+        모집일정
+        <WarnText>*최종 합격 시, 활동 기간 1년을 준수해야 합니다. </WarnText>
+      </TextBox>
+      <BoxContainer>
+        <RoundedBox background="#FFDEB9">
+          서류 접수
+          <ChangeText fontWeight="200" fontSize="18px">
+            2/17(토)~2/23(금) 18:00
+          </ChangeText>
+        </RoundedBox>
+        <RoundedBox background="#FFC88C">
+          1차 합격자 발표
+          <ChangeText fontWeight="200" fontSize="24px">
+            2/27(화)
+          </ChangeText>
+        </RoundedBox>
+        <RoundedBox background="#FFB666">
+          면접 *대면 원칙
+          <ChangeText fontWeight="200" fontSize="24px">
+            2/29(목)~3/1(금)
+          </ChangeText>
+        </RoundedBox>
+        <RoundedBox background="#FFA94C">
+          최종 합격자 발표
+          <ChangeText fontWeight="200" fontSize="24px">
+            3/5(화)
+          </ChangeText>
+        </RoundedBox>
+      </BoxContainer>
+    </FormContainer>
+  );
+};
+
+export default Information;
 
 const Text = styled.div`
   color: white;
@@ -29,7 +102,7 @@ const SmallText = styled.div`
   line-height: 1.5;
   margin-top: 15px;
   font-size: 20px;
-  font-family: 'Noto Sans Light';
+  font-family: "Noto Sans Light";
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 25px;
@@ -43,7 +116,7 @@ const SmallText = styled.div`
 `;
 
 const BoldText = styled.span`
-  font-family: 'Noto Sans Bold';
+  font-family: "Noto Sans Bold";
   font-size: 20px;
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -58,7 +131,7 @@ const BoldText = styled.span`
 `;
 
 const WarnText = styled.div`
-  font-family: 'Noto Sans Thin';
+  font-family: "Noto Sans Thin";
   font-size: 13px;
   margin-top: 25px;
   margin-left: 15px;
@@ -166,7 +239,7 @@ const RoundedBox = styled.div`
   white-space: pre-line;
   flex-direction: column;
   color: #111111;
-  
+
   @media (max-width: 480px) {
     width: calc(50% - 10px);
     line-height: 36px;
@@ -178,43 +251,3 @@ const RoundedBox = styled.div`
     margin-bottom: 20px;
   }
 `;
-
-const Information = () => {
-  return (
-    <FormContainer>
-      <Text marginTop='130px' marginLeft="-450px">멋쟁이사자처럼 숙명여대는 이런 사람을 찾습니다!</Text>
-      <SmallContainer marginLeft="-500px">
-        <SmallText>• 코딩을 배워보고 싶은 <BoldText>왕초보</BoldText></SmallText>
-        <SmallText>• 나만의 아이디어를 <BoldText>웹 서비스로 구현 및 배포</BoldText> 해보고 싶은 사람</SmallText>
-        <SmallText>• 혼자 공부는 그만! 사람들과 <BoldText>함께 웹 개발을 공부</BoldText>하고, <BoldText>개발 인적 네트워킹을 형성</BoldText>하고 싶은 사람</SmallText>
-        <SmallText>• 1년 간 멋쟁이사자처럼에서 활동하고 여름방학 동안 진행하는 <BoldText>장기 해커톤</BoldText>에 참가할 수 있는 사람</SmallText>
-        <SmallText>• <BoldText>매주 화요일 저녁 7시 ~ 9시</BoldText>에 동아리에 참여할 수 있는 사람</SmallText>
-        <SmallText>• 포기하지 않고 <BoldText>도전하는 사람</BoldText></SmallText>
-        <SmallText>• 모르는 것을 창피해 하지 않는 사람 모른다고 숨는 사람보다는 <BoldText>적극적으로 질문하고 성장</BoldText>하려는 사람</SmallText>
-        <SmallText>• 완성형인 사람보다 <BoldText>함께 성장하고자 하는 사람</BoldText></SmallText>
-      </SmallContainer>
-      <TextBox>모집일정<WarnText>*최종 합격 시, 활동 기간 1년을 준수해야 합니다. </WarnText>
-      </TextBox>
-      <BoxContainer>
-        <RoundedBox background='#FFDEB9'>
-          서류 접수
-          <ChangeText fontWeight='200' fontSize='18px' >2/17(토)~2/23(금) 18:00</ChangeText>
-        </RoundedBox>
-        <RoundedBox background='#FFC88C'>
-          1차 합격자 발표
-          <ChangeText fontWeight='200' fontSize='24px' >2/27(화)</ChangeText>
-        </RoundedBox>
-        <RoundedBox background='#FFB666'>
-          면접 *대면 원칙
-          <ChangeText fontWeight='200' fontSize='24px' >2/29(목)~3/1(금)</ChangeText>
-        </RoundedBox>
-        <RoundedBox background='#FFA94C'>
-          최종 합격자 발표
-          <ChangeText fontWeight='200' fontSize='24px' >3/5(화)</ChangeText>
-        </RoundedBox>
-      </BoxContainer>
-    </FormContainer>
-  );
-};
-
-export default Information;

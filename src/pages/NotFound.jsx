@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import * as S from '../style/LayoutStyle';
+import React from "react";
+import styled from "styled-components";
+import * as S from "../style/LayoutStyle";
 
 const NotFound = () => {
   const ImgContainer = styled.div`
@@ -8,11 +8,10 @@ const NotFound = () => {
     justify-content: center;
     position: relative;
     margin-top: 9rem;
-    
+
     @media (max-width: 480px) {
       margin-top: 2rem;
     }
-
   `;
   const Img = styled.img`
     width: 371px;
@@ -41,7 +40,7 @@ const NotFound = () => {
   const Text = styled.div`
     margin-top: 2rem;
     text-align: center;
-    font-family: 'Noto Sans Medium';
+    font-family: "Noto Sans Medium";
     font-size: 50px;
     font-style: normal;
     line-height: normal;
@@ -55,7 +54,7 @@ const NotFound = () => {
   const SubText = styled.div`
     margin-top: 3rem;
     text-align: center;
-    font-family: 'Noto Sans Regular';
+    font-family: "Noto Sans Regular";
     font-size: 40px;
     font-style: normal;
     font-weight: 400;
@@ -71,8 +70,14 @@ const NotFound = () => {
     <S.Layout>
       <S.Container>
         <ImgContainer>
-          <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lionwow.svg" alt="lionwow" />
-          <Imgg src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/question.svg" alt="question" />
+          <Img
+            src={`${process.env.REACT_APP_IMAGE_URL}/lionwow.svg`}
+            alt="lionwow"
+          />
+          <Imgg
+            src={`${process.env.REACT_APP_IMAGE_URL}/question.svg`}
+            alt="question"
+          />
         </ImgContainer>
         <Text>요청하신 페이지를 찾을 수 없습니다. </Text>
         <SubText>

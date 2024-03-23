@@ -1,99 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import * as S from '../style/LayoutStyle';
-import { Desktop, Mobile } from '../MediaQuery/useMediaQuery';
-
-const Slogan = styled.div`
-  font-size: 100px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -5.05px;
-  width: 50%;
-`;
-
-const LinkToAboutUsContainer = styled.div`
-  position: relative;
-  margin-bottom: 100px;
-
-  @media (max-width: 280px) {
-    font-size: 10px;
-    width: 280px;
-  }
-`;
-
-const LinkToAboutUs = styled.div`
-  color: #fefefe;
-  font-size: 45px;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -2.273px;
-  font-family: 'Noto Sans Thin';
-  &:hover {
-    color: #616161;
-  }
-
-  position: absolute;
-  right: 0;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  @media (max-width: 1024px) {
-    font-size: 60px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 25px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
-const BoldText = styled.span`
-  font-family: 'Noto Sans Bold';
-  font-size: 45px;
-
-  @media (max-width: 1024px) {
-    font-size: 50px;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 25px;
-  }
-`;
-
-const Img = styled.img`
-  width: 495px;
-  height: 552px;
-  flex-shrink: 0;
-`;
-
-const Layout = styled.div`
-  height: 100vh;
-`;
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import * as S from "../style/LayoutStyle";
+import { Desktop, Mobile } from "../MediaQuery/useMediaQuery";
 
 const Landing = () => {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate('/home');
+    navigate("/home");
     window.scrollTo(0, 0);
   };
 
-  const txt1 = 'Be The Lion, ';
-  const txt2 = 'Rule Your World !';
+  const txt1 = "Be The Lion, ";
+  const txt2 = "Rule Your World !";
 
-  const [text, setText] = useState('');
-  const [text2, setText2] = useState('');
+  const [text, setText] = useState("");
+  const [text2, setText2] = useState("");
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -122,7 +44,10 @@ const Landing = () => {
                 {text} <br></br> {text2}
               </Slogan>
               <S.ColumnBox>
-                <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg" alt="lion" />
+                <Img
+                  src={`${process.env.REACT_APP_IMAGE_URL}/lion.svg`}
+                  alt="lion"
+                />
                 <LinkToAboutUsContainer>
                   <LinkToAboutUs onClick={onClick}>
                     <BoldText>숙명여대 멋쟁이사자처럼 </BoldText>
@@ -137,9 +62,9 @@ const Landing = () => {
       <Mobile>
         <Container>
           <Img
-            src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg"
+            src={`${process.env.REACT_APP_IMAGE_URL}/lion.svg`}
             alt="lion"
-            style={{ width: '80%', height: 'auto', marginTop: '-60px' }}
+            style={{ width: "80%", height: "auto", marginTop: "-60px" }}
           />
           <LinkToAboutUsContainer className="linkContainer">
             <LinkToAboutUs onClick={onClick}>
@@ -178,3 +103,81 @@ const Div = styled.div`
   }
 `;
 export default Landing;
+
+const Slogan = styled.div`
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -5.05px;
+  width: 50%;
+`;
+
+const LinkToAboutUsContainer = styled.div`
+  position: relative;
+  margin-bottom: 100px;
+
+  @media (max-width: 280px) {
+    font-size: 10px;
+    width: 280px;
+  }
+`;
+
+const LinkToAboutUs = styled.div`
+  color: #fefefe;
+  font-size: 45px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -2.273px;
+  font-family: "Noto Sans Thin";
+  &:hover {
+    color: #616161;
+  }
+
+  position: absolute;
+  right: 0;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  @media (max-width: 1024px) {
+    font-size: 60px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const BoldText = styled.span`
+  font-family: "Noto Sans Bold";
+  font-size: 45px;
+
+  @media (max-width: 1024px) {
+    font-size: 50px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 25px;
+  }
+`;
+
+const Img = styled.img`
+  width: 495px;
+  height: 552px;
+  flex-shrink: 0;
+`;
+
+const Layout = styled.div`
+  height: 100vh;
+`;

@@ -1,7 +1,41 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Information from '../components/Information';
+import React, { useState } from "react";
+import Information from "../../components/Information";
+import styled from "styled-components";
+
+const FirstRecruit = () => {
+  return (
+    <Layout>
+      <Container>
+        <Img
+          src={`${process.env.REACT_APP_IMAGE_URL}/EndLion.svg`}
+          alt="lion"
+        />
+
+        <Text>
+          멋쟁이사자처럼 숙명여대{" "}
+          <ColorText fontSize="43px" color="#EB9537">
+            면접 심사 진행 중
+          </ColorText>
+          입니다.
+        </Text>
+        <Text>
+          최종 합격자는{" "}
+          <ColorText fontSize="43px" color="#EB9537">
+            3월 5일 화요일
+          </ColorText>
+          에 발표합니다.
+        </Text>
+
+        {/*<Link to="/recruitment/result-verification" style={{ textDecoration: 'none' }}>
+    <ResultBox>1차 심사 결과 확인</ResultBox></Link>*/}
+
+        <Information />
+      </Container>
+    </Layout>
+  );
+};
+
+export default FirstRecruit;
 
 const Text = styled.div`
   color: white;
@@ -33,7 +67,7 @@ const Img = styled.img`
   margin-top: 30px;
   width: 300px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     width: 150px;
   }
 `;
@@ -44,15 +78,15 @@ const Container = styled.div`
   align-items: center;
   color: white;
   width: 100%;
-  background-image: url('https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Banner.svg');
+  background-image: url("${process.env.REACT_APP_IMAGE_URL}/Banner.svg");
   background-size: 100%;
   background-position: center top;
   background-repeat: no-repeat;
-  
+
   @media (min-width: 768px) and (max-width: 1024px) {
     margin-top: -123px;
   }
-  
+
   @media (max-width: 480px) {
     margin-top: -123px;
   }
@@ -73,16 +107,16 @@ const ResultBox = styled.div`
   background: linear-gradient(180deg, #eb9537 5.52%, #ecc08f 96.15%);
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    width: 250px;
-    font-size: 23px;
+    width: 270px;
+    font-size: 25px;
     margin-top: 40px;
     height: 65px;
     border-radius: 18px;
   }
 
   @media (max-width: 480px) {
-    width: 130px;
-    font-size: 11px;
+    width: 150px;
+    font-size: 13px;
     margin-top: 40px;
     height: 40px;
     border-radius: 15px;
@@ -103,29 +137,3 @@ const ColorText = styled.span`
     line-height: 30px;
   }
 `;
-
-const FinalRecruit = () => {
-  return (
-    <Layout>
-      <Container>
-        <Img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/lion.svg" alt="lion" />
-        <Text marginTop="30px">
-          멋쟁이사자처럼 숙명여대{' '}
-          <ColorText color="#eb9537">
-            최종 심사
-          </ColorText>
-          가 완료되었습니다.
-        </Text>
-        <Text marginBottom="20px">최종 심사 결과 확인은 하단 링크를 통해 확인이 가능합니다.</Text>
-
-        <Link to="/recruitment/result-verification" style={{ textDecoration: 'none' }}>
-          <ResultBox>최종 심사 결과 확인</ResultBox>
-        </Link>
-
-        <Information />
-      </Container>
-    </Layout>
-  );
-};
-
-export default FinalRecruit;

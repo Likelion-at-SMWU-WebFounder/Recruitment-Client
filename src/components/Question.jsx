@@ -5,7 +5,6 @@ import axios from "axios";
 import { questions, agree, scheduleData, required } from "./data";
 
 const Question = () => {
-  
   const { part } = useParams();
   const navigate = useNavigate();
 
@@ -55,15 +54,15 @@ const Question = () => {
   switch (part) {
     case "plan":
       partName = "기획 · 디자인";
-      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/planline.svg";
+      backgroundImage = `${process.env.REACT_APP_IMAGE_URL}/planline.svg`;
       break;
     case "frontend":
       partName = "프론트엔드";
-      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/frontline.svg";
+      backgroundImage = `${process.env.REACT_APP_IMAGE_URL}/frontline.svg`;
       break;
     case "backend":
       partName = "백엔드";
-      backgroundImage = "https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/backline.svg";
+      backgroundImage = `${process.env.REACT_APP_IMAGE_URL}/backline.svg`;
       break;
     default:
       partName = "error";
@@ -137,7 +136,7 @@ const Question = () => {
     let response;
 
     const shortTrack = getShortTrack(part);
-    const apiUrl = `http://52.79.255.210:8080/api/recruit/docs?track=${shortTrack}`;
+    const apiUrl = `${process.env.REACT_APP_API_ROOT}/api/recruit/docs?track=${shortTrack}`;
 
     // 필수 입력 필드 확인
     const requiredFields = [
@@ -239,7 +238,6 @@ const Question = () => {
       }
     }
 
-
     try {
       const trackfield = getTrackField(part);
       // console.log('Track:', trackfield);
@@ -306,7 +304,7 @@ const Question = () => {
 
       // AWS S3 업로드 API 엔드포인트와 업로드 설정에 따라 수정 필요
       const response = await axios.post(
-        "https://sooklionadmin.shop/api/recruit/docs?track=${shortTrack}",
+        `${process.env.REACT_APP_API_ROOT}/api/recruit/docs?track=${shortTrack}`,
         formData
       );
 
@@ -340,7 +338,7 @@ const Question = () => {
     <>
       <form onSubmit={handleSubmit}>
         <Img
-          src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg"
+          src={`${process.env.REACT_APP_IMAGE_URL}/sm_logo.svg`}
           alt="logo"
         />
         <Row>
@@ -402,7 +400,12 @@ const Question = () => {
           </FormContainer>
         </Row>
         <Row style={{ marginLeft: "570px" }}>
-          <Text fontSize="13px" marginLeft="-50px" marginTop="-27px" marginBottom="0px">
+          <Text
+            fontSize="13px"
+            marginLeft="-50px"
+            marginTop="-27px"
+            marginBottom="0px"
+          >
             *본전공/복수전공/연계전공 등 자유롭게 입력 가능
           </Text>
         </Row>
@@ -536,8 +539,8 @@ const Question = () => {
         {/* portfolio: answers[6] */}
         <QuestionContainer>
           <Text fontSize="18px" marginTop="30px" marginLeft="30px">
-            7. 기술블로그, 포트폴리오, GitHub 등 자유롭게 URL 형식으로
-            제출해 주세요. *선택
+            7. 기술블로그, 포트폴리오, GitHub 등 자유롭게 URL 형식으로 제출해
+            주세요. *선택
           </Text>
           <Textarea
             style={{ height: "100px" }}
@@ -624,8 +627,8 @@ const Question = () => {
         {/* 개인 비밀번호 입력 */}
         <Row>
           <Text fontSize="18px" marginTop="30px" marginLeft="30px">
-            서류전형, 면접전형 결과 조회 시 사용할 개인 비밀번호 4자리를
-            설정해 주세요. *
+            서류전형, 면접전형 결과 조회 시 사용할 개인 비밀번호 4자리를 설정해
+            주세요. *
             <br />
             <span style={{ color: "red", fontWeight: "200", marginTop: "7px" }}>
               *비밀번호 분실 시, 추후 결과 조회가 어려울 수 있으니 유의바랍니다.
@@ -655,10 +658,10 @@ const Question = () => {
           </span>
         </Text>
         {!submitted && (
-        <SubmitButtonContainer>
-          <SubmitButton type="submit">제출하기</SubmitButton>
-        </SubmitButtonContainer>
-      )}
+          <SubmitButtonContainer>
+            <SubmitButton type="submit">제출하기</SubmitButton>
+          </SubmitButtonContainer>
+        )}
       </form>
     </>
   );
@@ -822,7 +825,6 @@ const EyeIcon = styled.span`
     font-size: 17px;
   }
 `;
-
 
 const PartText = styled.div`
   font-size: 36px;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Modal from "../components/Modal";
-
+import axios from "axios";
 
 const ProjectCard = ({ project, onClick }) => {
   const { bgImg, title, no, year, summary } = project;
@@ -33,8 +33,10 @@ const Project = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://52.79.255.210:8080/api/project`);
-        const data = await response.json();
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_ROOT}/api/project`
+        );
+        const data = response.data;
         setProjects(data.result);
         console.log(data.result);
       } catch (error) {
@@ -44,6 +46,7 @@ const Project = () => {
 
     fetchData();
   }, []);
+
   const openModal = (projectId) => {
     setSelectedProjectId(projectId);
 
@@ -151,7 +154,7 @@ const Text = styled.div`
 const BannerContainer = styled.div`
   align-items: left;
   width: 100%;
-  background-image: url("https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/ProjectBanner.svg");
+  background-image: url("${process.env.REACT_APP_IMAGE_URL}/ProjectBanner.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   height: 100%;

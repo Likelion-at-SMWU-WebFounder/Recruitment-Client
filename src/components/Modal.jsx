@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-
-// export const API_BASE_URL = process.env.REACT_APP_API_ROOT;
-// export const HOME_URL = process.env.REACT_APP_HOME_URL;
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
 
 const Modal = ({ projectId, onClose }) => {
   const [project, setProject] = useState(null);
@@ -12,12 +10,14 @@ const Modal = ({ projectId, onClose }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`http://52.79.255.210:8080/api/project/${projectId}`);
-        const data = await response.json();
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_ROOT}/api/project/${projectId}`
+        );
+        const data = response.data;
         setProject(data.result);
         console.log(data.result);
       } catch (error) {
-        console.error('Error fetching project data:', error);
+        console.error("Error fetching project data:", error);
       } finally {
         setLoading(false);
       }
@@ -51,10 +51,14 @@ const Modal = ({ projectId, onClose }) => {
     <ModalOverlay>
       <ModalContent>
         <CloseButton onClick={onClose}>X</CloseButton>
-        {bgImg
-        ? <ModalImage src={bgImg} alt={title} />
-        : <ModalImage src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/NullImage.svg"alt={title}/>
-        }
+        {bgImg ? (
+          <ModalImage src={bgImg} alt={title} />
+        ) : (
+          <ModalImage
+            src={`${process.env.REACT_APP_IMAGE_URL}/NullImage.svg`}
+            alt={title}
+          />
+        )}
         <ModalHeader>
           <ModalTitle>{title}</ModalTitle>
           <ModalSubtitle>{`${teamName} | ${teamMember}`}</ModalSubtitle>
@@ -65,26 +69,46 @@ const Modal = ({ projectId, onClose }) => {
         <ModalText marginTop="1vw">{content}</ModalText>
 
         <ButtonWrapper>
-        {servIntro && (
-          <ModalButton as="a" href={servIntro} target="_blank" rel="noopener noreferrer">
-            서비스 소개
-          </ModalButton>
-        )}
-        {gitBeUrl && (
-          <ModalButton as="a" href={gitBeUrl} target="_blank" rel="noopener noreferrer">
-            Github (BE)
-          </ModalButton>
-        )}
-        {gitFeUrl && (
-          <ModalButton as="a" href={gitFeUrl} target="_blank" rel="noopener noreferrer">
-            Github (FE)
-          </ModalButton>
-        )}
-        {servLaunch && (
-          <ModalButton as="a" href={servLaunch} target="_blank" rel="noopener noreferrer">
-            서비스 주소
-          </ModalButton>
-        )}
+          {servIntro && (
+            <ModalButton
+              as="a"
+              href={servIntro}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              서비스 소개
+            </ModalButton>
+          )}
+          {gitBeUrl && (
+            <ModalButton
+              as="a"
+              href={gitBeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github (BE)
+            </ModalButton>
+          )}
+          {gitFeUrl && (
+            <ModalButton
+              as="a"
+              href={gitFeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github (FE)
+            </ModalButton>
+          )}
+          {servLaunch && (
+            <ModalButton
+              as="a"
+              href={servLaunch}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              서비스 주소
+            </ModalButton>
+          )}
         </ButtonWrapper>
       </ModalContent>
     </ModalOverlay>
@@ -126,7 +150,7 @@ const CloseButton = styled.div`
   right: 1vw;
   font-size: 2.5vw;
   cursor: pointer;
-  color: #BBBBBB;
+  color: #bbbbbb;
 
   @media (max-width: 480px) {
     font-size: 12px;
@@ -202,7 +226,7 @@ const ErrorMessage = styled.p`
 
 const ModalButton = styled.button`
   border-radius: 0.8vw;
-  background-color: #EB9537;
+  background-color: #eb9537;
   color: #fff;
   font-size: 1vw;
   font-weight: 700;

@@ -1,33 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import NavBar from './components/Common/NavBar';
+import React from "react";
+import { ThemeProvider, styled } from "styled-components";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import GlobalStyle from "./style/GlobalStyle";
+import theme from "./style/theme";
 
-import NonRecruit from './Recruitment/NonRecruit';
-/*import Recruit from './Recruitment/Recruit';*/
+import NonRecruit from "./Recruitment/Recruit/NonRecruit";
+import Recruit from "./Recruitment/Recruit/Recruit";
 
-import SubmitSuccess from './Recruitment/SubmitSuccess';
-import SubmitFail from './Recruitment/SubmitFail';
+import SubmitSuccess from "./Recruitment/Result/SubmitSuccess";
+import SubmitFail from "./Recruitment/Result/SubmitFail";
 
-import FirstRecruit from './Recruitment/FirstRecruit';
-import FirstVerification from './Recruitment/FirstVerification';
-import FirstResult from './Recruitment/FirstResult';
+import FirstRecruit from "./Recruitment/Recruit/FirstRecruit";
+import FirstVerification from "./Recruitment/Verification/FirstVerification";
+import FirstResult from "./Recruitment/Result/FirstResult";
 
-import FinalRecruit from './Recruitment/FinalRecruit';
-import FinalVerification from './Recruitment/FinalVerification';
-import FinalResult from './Recruitment/FinalResult';
+import FinalRecruit from "./Recruitment/Recruit/FinalRecruit";
+import FinalVerification from "./Recruitment/Verification/FinalVerification";
+import FinalResult from "./Recruitment/Result/FinalResult";
 
-import GlobalStyle from './style/GlobalStyle';
-import theme from './style/theme';
-import { ThemeProvider, styled } from 'styled-components';
-import Footer from './components/Common/Footer';
-import Makers from './components/Makers';
-import AboutUs from './pages/AboutUs';
-import Landing from './pages/Landing';
-import NotFound from './pages/NotFound';
-import Contact from './pages/Contact';
-import ApplyPage from './Recruitment/ApplyPage';
-import Project from './pages/Project';
-import ProjectForm from './Recruitment/ProjectForm';
+import NavBar from "./components/Common/NavBar";
+import Footer from "./components/Common/Footer";
+import Makers from "./components/Makers";
+import AboutUs from "./pages/AboutUs";
+import Landing from "./pages/Landing";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
+import ApplyPage from "./pages/ApplyPage";
+import Project from "./pages/Project";
+import ProjectForm from "./components/ProjectForm";
 
 const Div = styled.div`
   margin-top: 120px;
@@ -52,16 +52,21 @@ function App() {
             <Route path="/" element={LayOut(Landing)} />
             <Route path="/home" element={LayOut(AboutUs)} />
             <Route path="/project" element={LayOut(Project)} />
-            <Route path="/recruitment" element={LayOut(FinalRecruit)/*[--] Recruit 앞 부분 수정하기*/}/>
+            <Route
+              path="/recruitment"
+              element={LayOut(Recruit) /*[--] Recruit 앞 부분 수정하기*/}
+            />
             {/* Recruit(리쿠르팅 중) or NonRecruit(리쿠르팅 기간 X) or FirstRecruit(1차 서류 발표 이후) or FinalRecruit(최종 발표 이후) 변경 */}
-            {/*<Route path="/recruitment/:part" element={<ApplyPage />} />
+            <Route path="/recruitment/:part" element={<ApplyPage />} />
             <Route
               path="/recruitment/submit-success"
               element={<SubmitSuccess />}
             />
-            <Route path="/recruitment/submit-fail" element={<SubmitFail />} />*/}
+            <Route path="/recruitment/submit-fail" element={<SubmitFail />} />
+            {/**/}
             {/* 1차 발표 때 FirstVerification, 최종 발표 때 FinalVerification */}
-             {/**/}<Route 
+            {/**/}
+            <Route
               path="/recruitment/result-verification"
               element={<FinalVerification />}
             />

@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+
+const SubmitFail = () => {
+  return (
+    <Layout>
+      <Img src={`${process.env.REACT_APP_IMAGE_URL}/SMLogo.svg`} alt="logo" />
+      <Container>
+        <Img
+          src={`${process.env.REACT_APP_IMAGE_URL}/StarLion.svg`}
+          alt="lion"
+        />
+        <Text fontSize="26px" fontWeight="800">
+          이미 지원 접수되었습니다.
+        </Text>
+        <Text fontSize="22px" fontWeight="lighter" marginTop="25px">
+          지원접수는 1회까지만 가능합니다.
+        </Text>
+        <Text fontSize="22px" fontWeight="lighter" marginTop="5px">
+          관련 문의: sookmyung@likelion.org
+        </Text>
+        <Link to="/home" style={{ textDecoration: "none" }}>
+          <ResultBox>홈으로</ResultBox>
+        </Link>
+      </Container>
+    </Layout>
+  );
+};
+
+export default SubmitFail;
 
 const Text = styled.div`
   color: white;
@@ -48,38 +76,3 @@ const ResultBox = styled.div`
   background: linear-gradient(180deg, #eb9537 5.52%, #ecc08f 96.15%);
   cursor: pointer;
 `;
-
-const SubmitSuccess = () => {
-  return (
-    <Layout>
-      <Img
-        src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/sm_logo.svg"
-        alt="logo"
-      />
-      <Container>
-        <Img
-          src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/StarLion.svg"
-          alt="lion"
-        />
-        <Text fontSize="26px" fontWeight="800">
-          서류 접수가 완료되었습니다.
-        </Text>
-        <Text
-          fontSize="22px"
-          fontWeight="lighter"
-          marginTop="10px"
-          style={{ textAlign: "center" }}
-        >
-          정상적 서류 접수 여부는 확인을 위해 메일 발송해드렸습니다.
-          <br />
-          멋쟁이사자처럼 숙명여대 12기 모집에 지원해주셔서 감사합니다.{" "}
-        </Text>
-        <Link to="/home" style={{ textDecoration: "none" }}>
-          <ResultBox>홈으로</ResultBox>
-        </Link>
-      </Container>
-    </Layout>
-  );
-};
-
-export default SubmitSuccess;

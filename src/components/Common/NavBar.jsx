@@ -1,8 +1,145 @@
-import React, { useState, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import * as S from '../../style/LayoutStyle';
-import { Desktop, Mobile } from '../../MediaQuery/useMediaQuery';
+import React, { useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { Desktop, Mobile } from "../../MediaQuery/useMediaQuery";
+
+const NavBar = () => {
+  const location = useLocation();
+  const [showSidebar, setShowSidebar] = useState(false);
+  const sidebarRef = useRef(null);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const closeSidebar = () => {
+    setShowSidebar(false);
+  };
+
+  const onClick = () => {
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <>
+      <Desktop>
+        <Nav>
+          <Link to="/home">
+            <img
+              src={`${process.env.REACT_APP_IMAGE_URL}/Logo.svg`}
+              alt="Logo"
+            />
+          </Link>
+          <ul>
+            <li>
+              <Link
+                onClick={onClick}
+                to="/home"
+                className={location.pathname === "/home" ? "active" : ""}
+              >
+                ABOUT US
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={onClick}
+                to="/project"
+                className={location.pathname === "/project" ? "active" : ""}
+              >
+                PROJECT
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={onClick}
+                to="/recruitment"
+                className={location.pathname === "/recruitment" ? "active" : ""}
+              >
+                RECRUITMENT
+              </Link>
+            </li>
+            <li>
+              <Link
+                onClick={onClick}
+                to="/contact"
+                className={location.pathname === "/contact" ? "active" : ""}
+              >
+                CONTACT
+              </Link>
+            </li>
+          </ul>
+        </Nav>
+      </Desktop>
+      <Mobile>
+        <MobileNav>
+          <RowBox>
+            <Link to="/home">
+              <img
+                src={`${process.env.REACT_APP_IMAGE_URL}/Logo.svg`}
+                alt="Logo"
+              />
+            </Link>
+            <img
+              src={`${process.env.REACT_APP_IMAGE_URL}/hamburger.svg`}
+              alt="hamburger"
+              onClick={toggleSidebar}
+              style={{ width: "3rem" }}
+            />
+          </RowBox>
+          {showSidebar && (
+            <Sidebar className="sidebar" ref={sidebarRef}>
+              <ul>
+                <li>
+                  <Link
+                    onClick={closeSidebar}
+                    to="/home"
+                    className={location.pathname === "/home" ? "active" : ""}
+                  >
+                    ABOUT US
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={closeSidebar}
+                    to="/project"
+                    className={location.pathname === "/project" ? "active" : ""}
+                  >
+                    PROJECT
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={closeSidebar}
+                    to="/recruitment"
+                    className={
+                      location.pathname === "/recruitment" ? "active" : ""
+                    }
+                  >
+                    RECRUITMENT
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={closeSidebar}
+                    to="/contact"
+                    className={location.pathname === "/contact" ? "active" : ""}
+                  >
+                    CONTACT
+                  </Link>
+                </li>
+              </ul>
+            </Sidebar>
+          )}
+          {showSidebar && (
+            <SidebarOverlay onClick={() => setShowSidebar(false)} />
+          )}
+        </MobileNav>
+      </Mobile>
+    </>
+  );
+};
+
+export default NavBar;
 
 const Nav = styled.nav`
   position: fixed;
@@ -102,136 +239,6 @@ const RowBox = styled.div`
   justify-content: space-between;
 `;
 
-const NavBar = () => {
-  const location = useLocation();
-  const [showSidebar, setShowSidebar] = useState(false);
-  const sidebarRef = useRef(null);
-
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
-  };
-
-  const closeSidebar = () => {
-    setShowSidebar(false);
-  };
-
-  const onClick = () => {
-    window.scrollTo(0, 0);
-  };
-
-  return (
-    <>
-      <Desktop>
-        <Nav>
-          <Link to="/home">
-            <img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Logo.svg" alt="Logo" />
-          </Link>
-          <ul>
-            <li>
-              <Link
-                onClick={onClick}
-                to="/home"
-                className={location.pathname === '/home' ? 'active' : ''}
-              >
-                ABOUT US
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={onClick}
-                to="/project"
-                className={location.pathname === '/project' ? 'active' : ''}
-              >
-                PROJECT
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={onClick}
-                to="/recruitment"
-                className={location.pathname === '/recruitment' ? 'active' : ''}
-              >
-                RECRUITMENT
-              </Link>
-            </li>
-            <li>
-              <Link
-                onClick={onClick}
-                to="/contact"
-                className={location.pathname === '/contact' ? 'active' : ''}
-              >
-                CONTACT
-              </Link>
-            </li>
-          </ul>
-        </Nav>
-      </Desktop>
-      <Mobile>
-        <MobileNav>
-          <RowBox>
-            <Link to="/home">
-              <img src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/Logo.svg" alt="Logo" />
-            </Link>
-            <img
-              src="https://s3.ap-northeast-2.amazonaws.com/smwu-likelion.com/hamburger.svg"
-              alt="hamburger"
-              onClick={toggleSidebar}
-              style={{ width: '3rem' }}
-            />
-          </RowBox>
-          {showSidebar && (
-            <Sidebar className="sidebar" ref={sidebarRef}>
-              <ul>
-                <li>
-                  <Link
-                    onClick={closeSidebar}
-                    to="/home"
-                    className={location.pathname === '/home' ? 'active' : ''}
-                  >
-                    ABOUT US
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={closeSidebar}
-                    to="/project"
-                    className={location.pathname === '/project' ? 'active' : ''}
-                  >
-                    PROJECT
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={closeSidebar}
-                    to="/recruitment"
-                    className={
-                      location.pathname === '/recruitment' ? 'active' : ''
-                    }
-                  >
-                    RECRUITMENT
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={closeSidebar}
-                    to="/contact"
-                    className={location.pathname === '/contact' ? 'active' : ''}
-                  >
-                    CONTACT
-                  </Link>
-                </li>
-              </ul>
-            </Sidebar>
-          )}
-          {showSidebar && (
-            <SidebarOverlay onClick={() => setShowSidebar(false)} />
-          )}
-        </MobileNav>
-      </Mobile>
-    </>
-  );
-};
-
 const SidebarOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -241,4 +248,3 @@ const SidebarOverlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999; // 다른 요소보다 위에 올라가도록
 `;
-export default NavBar;

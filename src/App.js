@@ -20,7 +20,7 @@ import FinalResult from "./Recruitment/Result/FinalResult";
 
 import NavBar from "./components/Common/NavBar";
 import Footer from "./components/Common/Footer";
-import Makers from "./components/Makers";
+import Makers from "./pages/Makers";
 import AboutUs from "./pages/AboutUs";
 import Landing from "./pages/Landing";
 import NotFound from "./pages/NotFound";

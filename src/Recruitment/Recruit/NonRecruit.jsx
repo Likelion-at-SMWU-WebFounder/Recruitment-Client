@@ -29,10 +29,12 @@ const NonRecruit = () => {
 
       console.log("Response data:", response.data);
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         setResponse("메일이 정상적으로 제출되었습니다.");
         setEmail("");
-        window.alert("메일이 정상적으로 제출되었습니다.");
+        window.alert(
+          "2025년 멋쟁이사자처럼 숙명여대 13기 모집 안내 메일을 발송해드리겠습니다. 감사합니다 :)"
+        );
       } else {
         setResponse("서버에서 잘못된 응답을 받았습니다.");
       }

@@ -55,18 +55,11 @@ const NonRecruit = () => {
           src={`${process.env.REACT_APP_IMAGE_URL}/EndLion.svg`}
           alt="lion"
         />
+        <Text>2024년 12기 신규 모집이 종료되었습니다.</Text>
         <Text>
-          서류 제출이 마감되었으며, 1차 서류 발표는 2/27(화) 9시입니다.
+          멋쟁이사자처럼 숙명여대 모집이 시작되면 메일을 보내드립니다.
         </Text>
-        <Text>숙명여대 멋쟁이사자처럼에 지원해 주셔서 감사합니다.</Text>
-        <NotionBox
-          href="https://tattered-cabinet-6cd.notion.site/12-at-Sookmyung-db2f25f1f35c48a6b068dbc5e33577e4?pvs=4"
-          target="_blank"
-        >
-          숙명여대 멋쟁이사자처럼 리쿠르팅 홍보 노션 확인하기
-        </NotionBox>
 
-        {/* 버튼에 onClick 이벤트 추가 
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -77,8 +70,13 @@ const NonRecruit = () => {
           <button type="submit" onClick={handleSubmit}>
             알림 신청
           </button>
-        </form>*/}
-
+        </form>
+        <NotionBox
+          href="https://tattered-cabinet-6cd.notion.site/12-at-Sookmyung-db2f25f1f35c48a6b068dbc5e33577e4?pvs=4"
+          target="_blank"
+        >
+          멋쟁이사자처럼 숙명여대 리쿠르팅 홍보 노션 확인하기
+        </NotionBox>
         <Information />
       </Container>
     </Layout>

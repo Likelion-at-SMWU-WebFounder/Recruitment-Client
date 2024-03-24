@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import Information from "../../components/Information";
 import styled from "styled-components";
 
@@ -14,20 +15,20 @@ const FirstRecruit = () => {
         <Text>
           멋쟁이사자처럼 숙명여대{" "}
           <ColorText fontSize="43px" color="#EB9537">
-            면접 심사 진행 중
+            1차 서류 심사
           </ColorText>
-          입니다.
+          가 완료되었습니다.
         </Text>
         <Text>
-          최종 합격자는{" "}
-          <ColorText fontSize="43px" color="#EB9537">
-            3월 5일 화요일
-          </ColorText>
-          에 발표합니다.
+          지원자 1차 심사 결과확인은 하단 버튼을 통해 확인이 가능합니다.
         </Text>
 
-        {/*<Link to="/recruitment/result-verification" style={{ textDecoration: 'none' }}>
-    <ResultBox>1차 심사 결과 확인</ResultBox></Link>*/}
+        <Link
+          to="/recruitment/result-verification"
+          style={{ textDecoration: "none" }}
+        >
+          <ResultBox>1차 심사 결과 확인</ResultBox>
+        </Link>
 
         <Information />
       </Container>

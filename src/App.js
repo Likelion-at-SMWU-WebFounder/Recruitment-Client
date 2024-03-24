@@ -68,11 +68,11 @@ function App() {
             {/*
             <Route
               path="/recruitment/result-verification"
-              element={<FinalVerification />}
+              element={<FirstVerification />}
             />*/}
             <Route path="/contact" element={LayOut(Contact)} />
             <Route path="/makers" element={LayOut(Makers)} />
-            {/*<Route path="/form" element={<ProjectForm />} />*/}
+            {/*<Route path="/form" element={<ProjectForm />} /> 프로젝트 신규 등록 시 열어서 활용하기 */}
           </Routes>
         </div>
       </Router>

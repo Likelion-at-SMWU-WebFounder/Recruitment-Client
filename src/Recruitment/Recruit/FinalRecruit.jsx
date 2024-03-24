@@ -13,7 +13,7 @@ const FinalRecruit = () => {
           <ColorText color="#eb9537">최종 심사</ColorText>가 완료되었습니다.
         </Text>
         <Text marginBottom="20px">
-          최종 심사 결과 확인은 하단 링크를 통해 확인이 가능합니다.
+          최종 심사 결과 확인은 하단 버튼을 통해 확인이 가능합니다.
         </Text>
 
         <Link

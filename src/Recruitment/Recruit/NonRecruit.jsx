@@ -20,14 +20,14 @@ const NonRecruit = () => {
     }
 
     try {
-      console.log("Sending email data:", { emailAdd: email });
+      // console.log("Sending email data:", { emailAdd: email });
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_ROOT}/api/recruit/mail`,
         { emailAdd: email }
       );
 
-      console.log("Response data:", response.data);
+      // console.log("Response data:", response.data);
 
       if (response.status === 200) {
         setResponse("메일이 정상적으로 제출되었습니다.");
